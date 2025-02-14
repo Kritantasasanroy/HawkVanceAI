@@ -95,7 +95,7 @@ def analyze_text_with_gemini(text):
     Analyze the given text using the Gemini API.
     - First, the text is cleaned to remove noise.
     - If the cleaned text contains any question marks, the prompt instructs the model
-      to both provide a detailed summary of the useful content and to list & answer every question.
+    - to both provide a detailed summary of the useful content and to list & answer every question.
     - Otherwise, it simply provides a summary.
     """
     cleaned_text = clean_text(text)
