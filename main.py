@@ -15,7 +15,6 @@ question_cooldown = 5       # Cooldown period in seconds (5 sec)
 response_history = []       # List to store generated responses
 current_response_index = -1 # Pointer for navigating the history
 capture_region = None       # Region for window/application-specific capture (x, y, w, h)
-
 # -------------------------------
 # 1. Load the API Key
 # -------------------------------
@@ -96,6 +95,7 @@ def analyze_text_with_gemini(text):
     - First, the text is cleaned to remove noise.
     - If the cleaned text contains any question marks, the prompt instructs the model
     - to both provide a detailed summary of the useful content and to list & answer every question.
+    - Analyse the the gien text and see if iy contains any question tags or 'wh' words, if it contains question tag or 'wh' words give ans to that at the bottom of the response.
     - Otherwise, it simply provides a summary.
     """
     cleaned_text = clean_text(text)
@@ -108,6 +108,7 @@ def analyze_text_with_gemini(text):
             "You are a highly capable assistant. Your task is to analyze the following screen content. "
             "First, provide a detailed, concise summary of the useful and relevant information, filtering out any noise or irrelevant details. "
             "Then, identify every clear question in the content and provide a comprehensive answer to each question individually. "
+            "Analyse the the gien text and see if iy contains any question tags or 'wh' words, if it contains question tag or 'wh' words give ans to that at the bottom of the response ."
             "If a question is ambiguous, clarify it in your answer. Use bullet points if necessary.\n\n"
             "Screen Content:\n"
             f"{cleaned_text}"
@@ -165,9 +166,9 @@ def set_capture_region():
 
 def export_report():
     """
-    Generate a PDF report with recent responses and the user notes.
-    The report includes a title, a few responses from the history,
-    and the notes from the annotation widget.
+    Generate a PDF report with the last few responses and user notes.
+    The report includes a title page, up to 5 responses from the history,
+    and a separate section for the annotations.
     """
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
@@ -175,7 +176,7 @@ def export_report():
     # Add a title page
     pdf.add_page()
     pdf.set_font("Arial", "B", 16)
-    pdf.cell(0, 10, "Gemini Analysis Report", ln=True, align="C")
+    pdf.cell(0, 10, "HawkVanceAI Report", ln=True, align="C")
     pdf.ln(10)
     
     # Include only the last 5 responses (or all if less than 5)
@@ -198,39 +199,18 @@ def export_report():
         pdf.set_font("Arial", "", 12)
         pdf.multi_cell(0, 10, notes)
     
-    # Save the PDF with a timestamp in the filename
-    filename = f"HawkVanceAI_Report_{int(time.time())}.pdf"
-    pdf.output(filename)
-    print(f"Report exported as {filename}")
-    print(f"Report exported as {filename}")
-    # Optionally, show a confirmation message in the overlay
-    update_text_widget(f"Report exported as {filename}")
-
-    # Add a title page
-    pdf.add_page()
-    pdf.set_font("Arial", "B", 16)
-    pdf.cell(0, 10, "HawkVance AI Analysis Report", ln=True, align="C")
-    pdf.ln(10)
+    # Save the PDF with a timestamp in the filename in the current working directory
+    export_dir = r"C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI"
+    filename = os.path.join(export_dir, f"HawkVanceAI_Report_{int(time.time())}.pdf")
     
-    # Include only the last 5 responses (or all if less than 5)
-    max_responses = 5
-    responses_to_include = response_history[-max_responses:] if len(response_history) > max_responses else response_history
-    
-    for idx, resp in enumerate(responses_to_include, start=1):
-        pdf.set_font("Arial", "B", 14)
-        pdf.cell(0, 10, f"Response {idx}:", ln=True)
-        pdf.set_font("Arial", "", 12)
-        pdf.multi_cell(0, 10, resp)
-        pdf.ln(5)
-    
-    # Add a section for user notes, if any
-    notes = annotation_widget.get("1.0", tk.END).strip()
-    if notes:
-        pdf.add_page()
-        pdf.set_font("Arial", "B", 14)
-        pdf.cell(0, 10, "User Notes", ln=True)
-        pdf.set_font("Arial", "", 12)
-        pdf.multi_cell(0, 10, notes)
+    try:
+        pdf.output(filename)
+        print(f"Report exported as {filename}")
+        # Optionally update the overlay widget with confirmation
+        update_text_widget(f"Report exported as {filename}")
+    except Exception as e:
+        print("Error exporting PDF:", e)
+        update_text_widget(f"Export error: {e}")
     
     # Save the PDF with a timestamp in the filename
     filename = f"HawkVanceAI_Report_{int(time.time())}.pdf"
