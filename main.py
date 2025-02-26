@@ -33,7 +33,7 @@ print("DEBUG: Using GEMINI_API_KEY =", GEMINI_API_KEY)
 # -------------------------------
 genai.configure(api_key=GEMINI_API_KEY)
 # Initialize the Gemini model using "gemini-pro"
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 # -------------------------------
 # 3. Functions for Screen Analysis and Gemini Integration
@@ -394,7 +394,7 @@ def continuous_update():
         overlay_root.after(0, lambda: update_text_widget(new_response))
     if not paused:
         threading.Thread(target=worker, daemon=True).start()
-    overlay_root.after(5000, continuous_update)
+    overlay_root.after(6000, continuous_update)
 
     
 # -------------------------------
