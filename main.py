@@ -2,18 +2,19 @@ import os
 import time
 import tkinter as tk
 import threading
+import re
 import google.generativeai as genai
 import pytesseract
 import cv2
 import numpy as np
 import pyautogui
-
+from fpdf import FPDF
 # Global variables for question cooldown and response history
 last_question_time = 0    # Timestamp of the last question asked
 question_cooldown = 5       # Cooldown period in seconds (5 sec)
 response_history = []       # List to store generated responses
 current_response_index = -1 # Pointer for navigating the history
-
+capture_region = None       # Region for window/application-specific capture (x, y, w, h)
 # -------------------------------
 # 1. Load the API Key
 # -------------------------------
@@ -32,7 +33,7 @@ print("DEBUG: Using GEMINI_API_KEY =", GEMINI_API_KEY)
 # -------------------------------
 genai.configure(api_key=GEMINI_API_KEY)
 # Initialize the Gemini model using "gemini-pro"
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 # -------------------------------
 # 3. Functions for Screen Analysis and Gemini Integration
@@ -40,14 +41,20 @@ model = genai.GenerativeModel("gemini-pro")
 
 def capture_screen():
     """
-    Capture the current screen excluding the overlay region.
-    We assume the overlay is 800px wide and positioned at the top-right.
+    Capture the current screen.
+    If a specific capture region is set (via set_capture_region),
+    capture that region; otherwise, capture the full screen excluding the overlay.
     """
-    screen_width, screen_height = pyautogui.size()
-    overlay_width = 800  # Must match the overlay width below
-    margin = 10
-    region_width = screen_width - overlay_width - margin
-    screenshot = pyautogui.screenshot(region=(0, 0, region_width, screen_height))
+    if capture_region is not None:
+        # Use the user-defined capture region
+        screenshot = pyautogui.screenshot(region=capture_region)
+    else:
+        # Default: capture entire screen excluding overlay area (assume overlay is 800px wide on the right)
+        screen_width, screen_height = pyautogui.size()
+        overlay_width = 800
+        margin = 10
+        region_width = screen_width - overlay_width - margin
+        screenshot = pyautogui.screenshot(region=(0, 0, region_width, screen_height))
     screenshot = np.array(screenshot)
     screenshot = cv2.cvtColor(screenshot, cv2.COLOR_RGB2BGR)
     return screenshot
@@ -87,7 +94,8 @@ def analyze_text_with_gemini(text):
     Analyze the given text using the Gemini API.
     - First, the text is cleaned to remove noise.
     - If the cleaned text contains any question marks, the prompt instructs the model
-      to both provide a detailed summary of the useful content and to list & answer every question.
+    - to both provide a detailed summary of the useful content and to list & answer every question.
+    - Analyse the the gien text and see if iy contains any question tags or 'wh' words, if it contains question tag or 'wh' words give ans to that at the bottom of the response.
     - Otherwise, it simply provides a summary.
     """
     cleaned_text = clean_text(text)
@@ -100,6 +108,7 @@ def analyze_text_with_gemini(text):
             "You are a highly capable assistant. Your task is to analyze the following screen content. "
             "First, provide a detailed, concise summary of the useful and relevant information, filtering out any noise or irrelevant details. "
             "Then, identify every clear question in the content and provide a comprehensive answer to each question individually. "
+            "Analyse the the gien text and see if iy contains any question tags or 'wh' words, if it contains question tag or 'wh' words give ans to that at the bottom of the response ."
             "If a question is ambiguous, clarify it in your answer. Use bullet points if necessary.\n\n"
             "Screen Content:\n"
             f"{cleaned_text}"
@@ -118,7 +127,7 @@ def analyze_text_with_gemini(text):
 
 def process_cycle():
     """
-    Execute one cycle: capture screen, extract text, and get Gemini analysis.
+    Execute one cycle: capture screen, extract text, analyze via Gemini, and return the response.
     """
     print("[📸] Capturing screen...")
     screen_image = capture_screen()
@@ -130,8 +139,85 @@ def process_cycle():
     print("\n[🔎 Gemini Response]:\n", gemini_response)
     return gemini_response
 
+def set_capture_region():
+    """
+    Temporarily hide the overlay, let the user select a region, and then restore the overlay.
+    Returns the selected ROI as (x, y, w, h).
+    """
+    global capture_region
+    # Hide the overlay window
+    overlay_root.withdraw()
+    time.sleep(0.2)
+    # Capture full screen for ROI selection
+    full_screenshot = pyautogui.screenshot()
+    full_image = np.array(full_screenshot)
+    full_image = cv2.cvtColor(full_image, cv2.COLOR_RGB2BGR)
+    roi = cv2.selectROI("Select Capture Region", full_image, showCrosshair=True, fromCenter=False)
+    cv2.destroyWindow("Select Capture Region")
+    overlay_root.deiconify()
+    if roi[2] > 0 and roi[3] > 0:
+        capture_region = roi  # Set global capture_region
+        print("Capture region set to:", capture_region)
+    else:
+        print("No region selected. Using default capture region.")
+    return capture_region
+
+    # export to pdf file
+
+def export_report():
+    """
+    Generate a PDF report with the last few responses and user notes.
+    The report includes a title page, up to 5 responses from the history,
+    and a separate section for the annotations.
+    """
+    pdf = FPDF()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    
+    # Add a title page
+    pdf.add_page()
+    pdf.set_font("Arial", "B", 16)
+    pdf.cell(0, 10, "HawkVanceAI Report", ln=True, align="C")
+    pdf.ln(10)
+    
+    # Include only the last 5 responses (or all if less than 5)
+    max_responses = 5
+    responses_to_include = response_history[-max_responses:] if len(response_history) > max_responses else response_history
+    
+    for idx, resp in enumerate(responses_to_include, start=1):
+        pdf.set_font("Arial", "B", 14)
+        pdf.cell(0, 10, f"Response {idx}:", ln=True)
+        pdf.set_font("Arial", "", 12)
+        pdf.multi_cell(0, 10, resp)
+        pdf.ln(5)
+    
+    # Add a section for user notes, if any
+    notes = annotation_widget.get("1.0", tk.END).strip()
+    if notes:
+        pdf.add_page()
+        pdf.set_font("Arial", "B", 14)
+        pdf.cell(0, 10, "User Notes", ln=True)
+        pdf.set_font("Arial", "", 12)
+        pdf.multi_cell(0, 10, notes)
+    
+    # Save the PDF with a timestamp in the filename in the current working directory
+    export_dir = r"C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI"
+    filename = os.path.join(export_dir, f"HawkVanceAI_Report_{int(time.time())}.pdf")
+    
+    try:
+        pdf.output(filename)
+        print(f"Report exported as {filename}")
+        # Optionally update the overlay widget with confirmation
+        update_text_widget(f"Report exported as {filename}")
+    except Exception as e:
+        print("Error exporting PDF:", e)
+        update_text_widget(f"Export error: {e}")
+    
+    # Save the PDF with a timestamp in the filename
+    filename = f"HawkVanceAI_Report_{int(time.time())}.pdf"
+    pdf.output(filename)
+    print(f"Report exported as {filename}")
 # -------------------------------
-# 4. Persistent, Draggable, Minimizable Overlay with Input & Navigation
+# 4. Overlay Window Setup with Input, Navigation, and Annotation
 # -------------------------------
 overlay_root = tk.Tk()
 overlay_root.title("HawkVance AI")
@@ -146,7 +232,7 @@ x_position = screen_width - overlay_width - 10
 y_position = 10
 overlay_root.geometry(f"{overlay_width}x{overlay_height}+{x_position}+{y_position}")
 
-# Custom title bar
+# Title bar for dragging, minimizing, pausing, region setting, and navigation
 title_bar = tk.Frame(overlay_root, bg="gray", relief="raised", bd=2)
 title_bar.pack(fill="x")
 title_label = tk.Label(title_bar, text="HawkVance AI", bg="gray", fg="white")
@@ -165,7 +251,13 @@ def toggle_pause():
         print("Updates resumed.")
 pause_button = tk.Button(title_bar, text="Pause", command=toggle_pause, bg="gray", fg="white", bd=0)
 pause_button.pack(side="right", padx=5)
+set_region_button = tk.Button(title_bar, text="Set Region", command=set_capture_region, bg="gray", fg="white", bd=0)
+set_region_button.pack(side="right", padx=5)
 
+# After your pause button, add the export button:
+export_button = tk.Button(title_bar, text="Export", command=export_report, bg="gray", fg="white", bd=0)
+export_button.pack(side="right", padx=5)
+# -------------------------------
 def start_move(event):
     overlay_root._drag_start_x = event.x
     overlay_root._drag_start_y = event.y
@@ -178,14 +270,31 @@ def on_move(event):
 title_bar.bind("<ButtonPress-1>", start_move)
 title_bar.bind("<B1-Motion>", on_move)
 
-# Container for content and input using grid
+# Navigation buttons for response history
+def show_previous_response():
+    global current_response_index
+    if response_history and current_response_index > 0:
+        current_response_index -= 1
+        update_text_widget(response_history[current_response_index])
+def show_next_response():
+    global current_response_index
+    if response_history and current_response_index < len(response_history) - 1:
+        current_response_index += 1
+        update_text_widget(response_history[current_response_index])
+prev_button = tk.Button(title_bar, text="←", command=show_previous_response, bg="gray", fg="white", bd=0)
+prev_button.pack(side="right", padx=5)
+next_button = tk.Button(title_bar, text="→", command=show_next_response, bg="gray", fg="white", bd=0)
+next_button.pack(side="right", padx=5)
+
+# Container for content, input, and annotation using grid layout (3 rows)
 main_container = tk.Frame(overlay_root, bg="lightyellow")
 main_container.pack(expand=True, fill="both")
 main_container.rowconfigure(0, weight=1)
 main_container.rowconfigure(1, weight=0)
+main_container.rowconfigure(2, weight=0)
 main_container.columnconfigure(0, weight=1)
 
-# Content frame (scrollable text widget)
+# Row 0: Content frame (scrollable text widget for analysis)
 content_frame = tk.Frame(main_container, bg="lightyellow")
 content_frame.grid(row=0, column=0, sticky="nsew")
 scrollbar = tk.Scrollbar(content_frame)
@@ -200,7 +309,7 @@ def update_text_widget(new_text):
     text_widget.insert(tk.END, new_text)
     text_widget.config(state="disabled")
 
-# Input frame for manual questions
+# Row 1: Input frame for manual questions and "Ask" button
 input_frame = tk.Frame(main_container, bg="lightyellow")
 input_frame.grid(row=1, column=0, sticky="ew", padx=10, pady=5)
 input_frame.columnconfigure(0, weight=1)
@@ -232,24 +341,46 @@ def ask_question():
 ask_button = tk.Button(input_frame, text="Ask", command=ask_question, font=("Arial", 12))
 ask_button.grid(row=0, column=1, padx=5)
 
-# Navigation buttons for response history
-def show_previous_response():
-    global current_response_index
-    if response_history and current_response_index > 0:
-        current_response_index -= 1
-        update_text_widget(response_history[current_response_index])
-def show_next_response():
-    global current_response_index
-    if response_history and current_response_index < len(response_history) - 1:
-        current_response_index += 1
-        update_text_widget(response_history[current_response_index])
-prev_button = tk.Button(title_bar, text="←", command=show_previous_response, bg="gray", fg="white", bd=0)
-prev_button.pack(side="right", padx=5)
-next_button = tk.Button(title_bar, text="→", command=show_next_response, bg="gray", fg="white", bd=0)
-next_button.pack(side="right", padx=5)
+# Row 2: Annotation frame for user notes and "Show/Hide Notes" button
+
+# Global variable to track dropdown state
+annotation_dropdown_visible = False
+
+# Create a container frame for the annotation area (initially hidden)
+annotation_frame_container = tk.Frame(main_container, bg="lightyellow")
+annotation_frame_container.grid(row=2, column=0, sticky="ew", padx=10, pady=5)
+annotation_frame_container.grid_remove()  # Start hidden
+
+def toggle_annotations():
+    global annotation_dropdown_visible
+    if annotation_dropdown_visible:
+        annotation_frame_container.grid_remove()
+        annotation_dropdown_visible = False
+        toggle_annotation_button.config(text="Show Notes")
+    else:
+        annotation_frame_container.grid()
+        annotation_dropdown_visible = True
+        toggle_annotation_button.config(text="Hide Notes")
+
+# Create a toggle button for the annotations dropdown
+toggle_annotation_button = tk.Button(main_container, text="Show Notes", command=toggle_annotations, font=("Arial", 12))
+toggle_annotation_button.grid(row=3, column=0, sticky="ew", padx=10, pady=5)
+
+# Inside the container, create the annotation frame with a label, a text widget, and a clear button
+annotation_frame = tk.Frame(annotation_frame_container, bg="lightyellow")
+annotation_frame.pack(fill="x")
+annotation_label = tk.Label(annotation_frame, text="Notes:", font=("Arial", 12), bg="lightyellow")
+annotation_label.pack(side="left", padx=(0,5))
+annotation_widget = tk.Text(annotation_frame, height=4, font=("Arial", 12), bg="white", fg="black")
+annotation_widget.pack(side="left", expand=True, fill="x")
+def clear_annotations():
+    annotation_widget.delete("1.0", tk.END)
+clear_button = tk.Button(annotation_frame, text="Clear Notes", command=clear_annotations, font=("Arial", 12))
+clear_button.pack(side="right", padx=5)
+
 
 # -------------------------------
-# 5. Continuous Update Loop with Pause Support
+# 5. Continuous Update Loop with Pause Support and History Saving
 # -------------------------------
 def continuous_update():
     def worker():
@@ -263,10 +394,11 @@ def continuous_update():
         overlay_root.after(0, lambda: update_text_widget(new_response))
     if not paused:
         threading.Thread(target=worker, daemon=True).start()
-    overlay_root.after(5000, continuous_update)
+    overlay_root.after(6000, continuous_update)
+
     
 # -------------------------------
-# 6. Main Execution
+# 7. Main Execution
 # -------------------------------
 if __name__ == "__main__":
     continuous_update()
