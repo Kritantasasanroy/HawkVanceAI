@@ -1,0 +1,189 @@
+2025-03-06 14:24:07,518 - root - INFO - Starting HawkVance AI
+2025-03-06 14:24:07,521 - root - ERROR - Error initializing Tesseract OCR: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+2025-03-06 14:24:07,521 - root - ERROR - Application error: Failed to initialize Tesseract OCR
+Traceback (most recent call last):
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 451, in get_tesseract_version
+    output = subprocess.check_output(
+        [tesseract_cmd, '--version'],
+    ...<2 lines>...
+        stdin=subprocess.DEVNULL,
+    )
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 474, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 556, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1038, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1550, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kunda\OneDrive - K L University\HawkVanceAI\src\core\ocr.py", line 15, in __init__
+    pytesseract.get_tesseract_version()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 163, in wrapper
+    wrapper._result = func(*args, **kwargs)
+                      ~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 458, in get_tesseract_version
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kunda\OneDrive - K L University\HawkVanceAI\main.py", line 35, in main
+    ocr_processor = OCRProcessor(tesseract_path=TESSERACT_PATH)
+  File "C:\Users\kunda\OneDrive - K L University\HawkVanceAI\src\core\ocr.py", line 19, in __init__
+    raise RuntimeError("Failed to initialize Tesseract OCR")
+RuntimeError: Failed to initialize Tesseract OCR
+2025-03-06 14:31:27,055 - root - INFO - Starting HawkVance AI
+2025-03-06 14:31:27,202 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 14:31:27,202 - root - INFO - Gemini API initialized successfully
+2025-03-06 14:31:27,631 - root - ERROR - Application error: '_tkinter.tkapp' object has no attribute 'initialize_components'
+Traceback (most recent call last):
+  File "C:\Users\kunda\OneDrive - K L University\HawkVanceAI\main.py", line 44, in main
+    root.initialize_components(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\tkinter\__init__.py", line 2546, in __getattr__
+    return getattr(self.tk, attr)
+AttributeError: '_tkinter.tkapp' object has no attribute 'initialize_components'
+2025-03-06 14:35:42,644 - root - INFO - Starting HawkVance AI
+2025-03-06 14:35:42,670 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 14:35:42,670 - root - INFO - Gemini API initialized successfully
+2025-03-06 14:55:37,988 - root - INFO - Starting HawkVance AI
+2025-03-06 14:55:38,026 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 14:55:38,027 - root - INFO - Gemini API initialized successfully
+2025-03-06 15:00:56,152 - root - INFO - Starting HawkVance AI
+2025-03-06 15:00:56,185 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 15:00:56,186 - root - INFO - Gemini API initialized successfully
+2025-03-06 15:02:28,584 - root - INFO - Starting HawkVance AI
+2025-03-06 15:02:28,619 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 15:02:28,620 - root - INFO - Gemini API initialized successfully
+2025-03-06 15:06:20,367 - root - INFO - Starting HawkVance AI
+2025-03-06 15:06:20,401 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 15:06:20,402 - root - INFO - Gemini API initialized successfully
+2025-03-06 16:42:07,846 - root - INFO - Starting HawkVance AI
+2025-03-06 16:42:07,902 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 16:42:07,903 - root - INFO - Gemini API initialized successfully
+2025-03-06 16:44:18,586 - root - INFO - Starting HawkVance AI
+2025-03-06 16:44:18,619 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 16:44:18,620 - root - INFO - Gemini API initialized successfully
+2025-03-06 16:45:26,193 - root - INFO - Starting HawkVance AI
+2025-03-06 16:45:26,226 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 16:45:26,227 - root - INFO - Gemini API initialized successfully
+2025-03-06 16:45:49,777 - root - INFO - Starting HawkVance AI
+2025-03-06 16:45:49,806 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 16:45:49,807 - root - INFO - Gemini API initialized successfully
+2025-03-06 16:56:29,538 - root - INFO - Starting HawkVance AI
+2025-03-06 16:56:31,105 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 16:56:31,106 - root - INFO - Gemini API initialized successfully
+2025-03-06 17:13:06,735 - root - INFO - Starting HawkVance AI
+2025-03-06 17:13:06,763 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 17:13:06,764 - root - INFO - Gemini API initialized successfully
+2025-03-06 17:25:59,230 - root - INFO - Starting HawkVance AI
+2025-03-06 17:25:59,284 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 17:25:59,285 - root - INFO - Gemini API initialized successfully
+2025-03-06 18:53:00,878 - root - INFO - Starting HawkVance AI
+2025-03-06 18:53:01,043 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 18:53:01,043 - root - INFO - Gemini API initialized successfully
+2025-03-06 18:58:52,582 - root - INFO - Starting HawkVance AI
+2025-03-06 18:58:52,617 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 18:58:52,618 - root - INFO - Gemini API initialized successfully
+2025-03-06 19:09:13,822 - root - INFO - Starting HawkVance AI
+2025-03-06 19:09:13,860 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 19:09:13,861 - root - INFO - Gemini API initialized successfully
+2025-03-06 19:12:27,360 - root - INFO - Starting HawkVance AI
+2025-03-06 19:12:27,387 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 19:12:27,387 - root - INFO - Gemini API initialized successfully
+2025-03-06 19:18:11,354 - root - ERROR - Error exporting to PDF: TTF Font file not found: DejaVuSansCondensed.ttf
+2025-03-06 19:26:38,387 - root - ERROR - Error exporting to PDF: TTF Font file not found: DejaVuSansCondensed.ttf
+2025-03-06 19:32:56,641 - root - INFO - Starting HawkVance AI
+2025-03-06 19:32:56,673 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 19:32:56,673 - root - INFO - Gemini API initialized successfully
+2025-03-06 19:57:00,705 - root - INFO - Starting HawkVance AI
+2025-03-06 19:57:00,743 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 19:57:00,743 - root - INFO - Gemini API initialized successfully
+2025-03-06 20:03:19,921 - root - INFO - Starting HawkVance AI
+2025-03-06 20:03:19,990 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 20:03:19,991 - root - INFO - Gemini API initialized successfully
+2025-03-06 20:11:34,455 - root - INFO - Starting HawkVance AI
+2025-03-06 20:11:34,489 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 20:11:34,490 - root - INFO - Gemini API initialized successfully
+2025-03-06 20:18:07,662 - root - INFO - Starting HawkVance AI
+2025-03-06 20:18:07,730 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 20:18:07,730 - root - INFO - Gemini API initialized successfully
+2025-03-06 20:18:56,612 - root - INFO - Starting HawkVance AI
+2025-03-06 20:18:56,639 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 20:18:56,640 - root - INFO - Gemini API initialized successfully
+2025-03-06 20:27:57,487 - root - INFO - Starting HawkVance AI
+2025-03-06 20:27:57,543 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-06 20:27:57,544 - root - INFO - Gemini API initialized successfully
+2025-03-09 07:00:31,673 - root - INFO - Starting HawkVance AI
+2025-03-09 07:00:31,777 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 07:00:31,778 - root - INFO - Gemini API initialized successfully
+2025-03-09 07:10:06,477 - root - INFO - Starting HawkVance AI
+2025-03-09 07:10:07,335 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 07:10:07,335 - root - INFO - Gemini API initialized successfully
+2025-03-09 07:21:28,954 - root - INFO - Starting HawkVance AI
+2025-03-09 07:21:28,982 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 07:21:28,983 - root - INFO - Gemini API initialized successfully
+2025-03-09 07:30:56,145 - root - INFO - Starting HawkVance AI
+2025-03-09 07:30:56,182 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 07:30:56,183 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-09 07:31:21,432 - root - ERROR - Error in text analysis: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2025-03-09 07:31:40,056 - root - ERROR - Error in text analysis: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2025-03-09 07:31:52,895 - root - INFO - Starting HawkVance AI
+2025-03-09 07:31:52,922 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 07:31:52,923 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-09 07:52:45,840 - root - INFO - Starting HawkVance AI
+2025-03-09 07:52:45,869 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 07:52:45,869 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-09 07:53:22,908 - root - ERROR - Error in text analysis: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 4. Meaning that the model was reciting from copyrighted material.
+2025-03-09 08:21:52,827 - root - INFO - Starting HawkVance AI
+2025-03-09 08:21:52,867 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 08:21:52,867 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-09 08:32:46,466 - root - INFO - Starting HawkVance AI
+2025-03-09 08:32:46,499 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 08:32:46,500 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-09 08:40:10,073 - root - INFO - Starting HawkVance AI
+2025-03-09 08:40:10,108 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-09 08:40:10,109 - root - INFO - Gemini 2.0 API initialized successfully
