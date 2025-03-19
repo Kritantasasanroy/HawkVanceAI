@@ -5,15 +5,14 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyASYcIjY3TIuo0n_i49Un7G5Shf_r
 
 # UI Configuration
 THEME = {
-    'primary': '#2C3E50',    # Dark blue-gray
-    'secondary': '#ECF0F1',  # Light gray
-    'accent': '#3498DB',     # Bright blue
-    'text': '#2C3E50',       # Dark blue-gray
-    'text_light': '#ECF0F1', # Light gray
-    'success': '#2ECC71',    # Green
-    'warning': '#F1C40F',    # Yellow
-    'error': '#E74C3C',      # Red
-    'background': '#FFFFFF', # White
+    'dark_blackish_purple': '#2D1B4F',  # Royal background color
+    'background': '#2D1B4F',
+    'primary': '#4A307D',
+    'accent': '#7157A3',
+    'secondary': '#3A235A',
+    'text': 'white',
+    'text_light': 'white',
+    'success': '#4CAF50'  # Green for success messages (change if needed)
 }
 
 # Window Configuration
@@ -26,7 +25,7 @@ WINDOW_CONFIG = {
 }
 
 # OCR Configuration
-TESSERACT_PATH = r'C:\Users\kunda\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+TESSERACT_PATH = r'C:\Users\mithu\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
 
 # Capture Configuration
 CAPTURE_CONFIG = {

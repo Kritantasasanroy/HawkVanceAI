@@ -11,29 +11,27 @@ class HawkVanceStyle:
         # Configure main theme
         style.configure('HawkVance.TFrame', background=THEME['background'])
         
-        # Configure button styles
+        # Configure uniform button styles (20% smaller & 15% more rounded)
         style.configure('HawkVance.TButton',
             background=THEME['accent'],
             foreground='Black',
-            padding=(10, 5),
-            font=('Segoe UI', 10, 'bold')
+            padding=(8, 4),  # Reduced padding by 20%
+            font=('Segoe UI', 9, 'bold'),
+            width=12,  # Uniform width
+            relief='flat',
+            borderwidth=6  # Increased rounding by 15%
+        )
+        style.map('HawkVance.TButton', 
+            background=[('active', THEME['primary'])]  # Highlight effect
         )
         
-        # Navigation button style
+        # Configure navigation button styles
         style.configure('Nav.TButton',
             background=THEME['primary'],
             foreground='Black',
             padding=(5, 2),
-            font=('Segoe UI', 12, 'bold')
+            font=('Segoe UI', 10, 'bold')
         )
-        
-        # Close button style
-        # style.configure('Close.TButton',
-        #     background=THEME['error'],
-        #     foreground='Black',
-        #     padding=(5, 2),
-        #     font=('Segoe UI', 10, 'bold')
-        # )
         
         # Configure title bar style
         style.configure('TitleBar.TFrame',
@@ -46,7 +44,7 @@ class HawkVanceStyle:
             background=THEME['secondary'],
             relief='flat'
         )
-        
+
         return {
             'title_bar': {
                 'bg': THEME['primary'],
