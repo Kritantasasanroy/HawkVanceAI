@@ -840,3 +840,27 @@ Traceback (most recent call last):
     root = MainWindow()
            ^^^^^^^^^^^^
 TypeError: MainWindow.__init__() missing 4 required positional arguments: 'root', 'screen_capture', 'ocr_processor', and 'gemini_processor'
+2025-03-19 12:49:12,848 - root - INFO - Starting HawkVance AI
+2025-03-19 12:49:12,929 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-19 12:49:12,929 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-19 21:58:47,884 - root - INFO - Starting HawkVance AI
+2025-03-19 21:58:47,944 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-19 21:58:47,944 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-19 23:21:58,577 - root - INFO - Starting HawkVance AI
+2025-03-19 23:21:59,514 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-19 23:21:59,514 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-21 14:55:22,268 - root - INFO - Starting HawkVance AI
+2025-03-21 14:55:23,266 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-03-21 14:55:23,266 - root - INFO - Gemini 2.0 API initialized successfully
+2025-03-21 14:55:24,033 - root - ERROR - Application error: 'white'
+Traceback (most recent call last):
+  File "c:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\main.py", line 41, in main
+    root = MainWindow()
+           ^^^^^^^^^^^^
+  File "c:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\src\ui\main_window.py", line 33, in __init__
+    self.style = HawkVanceStyle.configure_styles()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\src\ui\styles.py", line 51, in configure_styles
+    'fg': THEME['white'],
+          ~~~~~^^^^^^^^^
+KeyError: 'white'

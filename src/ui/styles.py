@@ -48,15 +48,15 @@ class HawkVanceStyle:
         return {
             'title_bar': {
                 'bg': THEME['primary'],
-                'fg': THEME['text_light'],
+                'fg': 'white',  # Changed from THEME['text_light'] to 'white'
                 'relief': 'raised',
                 'bd': 0
             },
             'button': {
                 'bg': THEME['accent'],
-                'fg': THEME['text_light'],
+                'fg': 'white',  # Changed from THEME['text_light'] to 'white'
                 'activebackground': THEME['primary'],
-                'activeforeground': THEME['text_light'],
+                'activeforeground': 'white',  # Changed from THEME['text_light'] to 'white'
                 'relief': 'flat',
                 'bd': 0,
                 'padx': 10,
@@ -65,7 +65,7 @@ class HawkVanceStyle:
             },
             'text': {
                 'bg': THEME['secondary'],
-                'fg': THEME['text'],
+                'fg': 'white',  # Changed from THEME['text_light'] to 'white'
                 'font': ('Segoe UI', 11),
                 'relief': 'flat',
                 'bd': 0,
