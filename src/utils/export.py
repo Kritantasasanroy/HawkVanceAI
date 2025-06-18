@@ -7,7 +7,7 @@ import logging
 class DocumentExporter:
     def __init__(self, output_dir: str = None):
         if output_dir is None:
-            output_dir = "C:/Users/kunda/OneDrive - K L University/HawkVanceAI/exports"
+            output_dir = "C:/Users/mithu/OneDrive/Desktop/recogP/HawkVanceAI/exports"
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 

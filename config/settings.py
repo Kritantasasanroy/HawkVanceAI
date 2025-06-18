@@ -26,8 +26,8 @@ WINDOW_CONFIG = {
 }
 
 # OCR Configuration
-TESSERACT_PATH = r'C:\Users\kunda\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
-
+# TESSERACT_PATH = r'C:\Users\kunda\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+TESSERACT_PATH = r'C:\Users\mithu\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
 # Capture Configuration
 CAPTURE_CONFIG = {
     'overlay_width': 800,
