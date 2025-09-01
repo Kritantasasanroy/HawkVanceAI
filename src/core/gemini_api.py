@@ -4,8 +4,8 @@ import google.generativeai as genai
 from dataclasses import dataclass
 import os
 
-# Update API key
-GEMINI_API_KEY = "AIzaSyBz18SaAgyflzCjHzJfXMQXwjxo7Jgw8j4"
+# Get API key from environment variables
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 @dataclass
 class AnalysisResult:
@@ -17,7 +17,10 @@ class AnalysisResult:
 class GeminiProcessor:
     def __init__(self):
         try:
-            # Configure with new API key
+            if not GEMINI_API_KEY:
+                raise ValueError("GEMINI_API_KEY environment variable is not set")
+            
+            # Configure with API key from environment
             genai.configure(api_key=GEMINI_API_KEY)
             # Update model to Gemini 2.0
             self.model = genai.GenerativeModel("models/gemini-2.0-flash")

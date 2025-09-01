@@ -1,7 +1,48 @@
 import os
+import logging
+from .environment import EnvironmentConfig
+
+# Load environment variables on module import
+EnvironmentConfig.load_environment()
+
+def validate_configuration():
+    """
+    Validate that all required configuration is present and valid.
+    
+    Raises:
+        ValueError: If required configuration is missing or invalid
+    """
+    missing_vars = []
+    
+    # Check for required environment variables
+    if not os.getenv("GEMINI_API_KEY"):
+        missing_vars.append("GEMINI_API_KEY")
+    
+    if not os.getenv("TESSERACT_PATH"):
+        missing_vars.append("TESSERACT_PATH")
+    
+    if missing_vars:
+        error_msg = f"Missing required environment variables: {', '.join(missing_vars)}"
+        logging.error(error_msg)
+        logging.error("Please create a .env file with the required variables or set them in your system environment.")
+        logging.error("See .env.example for the required format.")
+        raise ValueError(error_msg)
+    
+    # Validate Tesseract path exists
+    tesseract_path = os.getenv("TESSERACT_PATH")
+    if tesseract_path and not os.path.exists(tesseract_path):
+        error_msg = f"TESSERACT_PATH points to non-existent file: {tesseract_path}"
+        logging.error(error_msg)
+        logging.error("Please verify the Tesseract installation path in your .env file.")
+        raise ValueError(error_msg)
+    
+    logging.info("Configuration validation successful")
+
+# Note: Configuration validation is now handled in main.py during startup
+# This allows for better error handling and graceful shutdown
 
 # API Configuration
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyASYcIjY3TIuo0n_i49Un7G5Shf_rESZHY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # UI Configuration
 THEME = {
@@ -26,8 +67,7 @@ WINDOW_CONFIG = {
 }
 
 # OCR Configuration
-# TESSERACT_PATH = r'C:\Users\kunda\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
-TESSERACT_PATH = r'C:\Users\mithu\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+TESSERACT_PATH = os.getenv("TESSERACT_PATH")
 # Capture Configuration
 CAPTURE_CONFIG = {
     'overlay_width': 800,

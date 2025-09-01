@@ -1,0 +1,3 @@
+google-generativeai
+pytesseract
+python-dotenv

@@ -2,21 +2,21 @@
 2025-03-06 14:24:07,521 - root - ERROR - Error initializing Tesseract OCR: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
 2025-03-06 14:24:07,521 - root - ERROR - Application error: Failed to initialize Tesseract OCR
 Traceback (most recent call last):
-  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\site-packages\pytesseract\pytesseract.py", line 451, in get_tesseract_version
+  File "C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\exports", line 451, in get_tesseract_version
     output = subprocess.check_output(
         [tesseract_cmd, '--version'],
     ...<2 lines>...
         stdin=subprocess.DEVNULL,
     )
-  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 474, in check_output
+  File "C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\exports", line 474, in check_output
     return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                **kwargs).stdout
                ^^^^^^^^^
-  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 556, in run
+  File "C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\exports", line 556, in run
     with Popen(*popenargs, **kwargs) as process:
          ~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1038, in __init__
+  File "C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\exports", line 1038, in __init__
     self._execute_child(args, executable, preexec_fn, close_fds,
     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                         pass_fds, cwd, env,
@@ -26,7 +26,7 @@ Traceback (most recent call last):
                         ^^^^^^^^^^^^^^^^^^^^^^
                         start_new_session, process_group)
                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\kunda\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1550, in _execute_child
+  File "C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\exports", line 1550, in _execute_child
     hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
                        ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
                              # no special security
@@ -1320,3 +1320,9 @@ PermissionError: [WinError 5] Access is denied: 'C:\\Users\\kunda'
 2025-06-18 23:14:10,105 - root - INFO - Starting HawkVance AI
 2025-06-18 23:14:10,959 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
 2025-06-18 23:14:10,959 - root - INFO - Gemini 2.0 API initialized successfully
+2025-07-19 09:37:04,653 - root - INFO - Starting HawkVance AI
+2025-07-19 09:37:04,765 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-07-19 09:37:04,766 - root - INFO - Gemini 2.0 API initialized successfully
+2025-07-19 09:39:58,280 - root - INFO - Starting HawkVance AI
+2025-07-19 09:39:58,329 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-07-19 09:39:58,330 - root - INFO - Gemini 2.0 API initialized successfully
