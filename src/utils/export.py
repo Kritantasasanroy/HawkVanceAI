@@ -3,13 +3,23 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any
 import logging
+import os
 
 class DocumentExporter:
     def __init__(self, output_dir: str = None):
         if output_dir is None:
-            output_dir = "C:/Users/kunda/OneDrive - K L University/HawkVanceAI/exports"
+            # Use the current user's Documents folder
+            username = os.getenv('USERNAME', 'user')
+            output_dir = f"C:/Users/{username}/Documents/HawkVanceAI/exports"
         self.output_dir = Path(output_dir)
-        self.output_dir.mkdir(parents=True, exist_ok=True)
+        try:
+            self.output_dir.mkdir(parents=True, exist_ok=True)
+        except Exception as e:
+            # Fallback to a local directory if we can't create in Documents
+            logging.warning(f"Could not create output directory {output_dir}: {str(e)}")
+            self.output_dir = Path("./exports")
+            self.output_dir.mkdir(parents=True, exist_ok=True)
+            logging.info(f"Using fallback directory: {self.output_dir.absolute()}")
 
     def export_to_pdf(self, data: Dict[str, Any], filename: str = None) -> str:
         """Export analysis results to PDF"""

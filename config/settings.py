@@ -26,7 +26,32 @@ WINDOW_CONFIG = {
 }
 
 # OCR Configuration
-TESSERACT_PATH = r'C:\Users\kunda\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+# Common Tesseract installation paths on Windows
+TESSERACT_PATHS = [
+    r'C:\Program Files\Tesseract-OCR\tesseract.exe',
+    r'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe',
+    r'C:\Users\{}\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'.format(os.getenv('USERNAME', 'user')),
+    'tesseract'  # If it's in PATH
+]
+
+# Function to find Tesseract installation
+def find_tesseract_path():
+    """Find the correct Tesseract path on the system"""
+    import shutil
+    
+    # Check if tesseract is in PATH
+    tesseract_in_path = shutil.which('tesseract')
+    if tesseract_in_path:
+        return tesseract_in_path
+    
+    # Check common installation paths
+    for path in TESSERACT_PATHS[:-1]:  # Exclude 'tesseract' from file checks
+        if os.path.exists(path):
+            return path
+    
+    return None
+
+TESSERACT_PATH = find_tesseract_path()
 
 # Capture Configuration
 CAPTURE_CONFIG = {

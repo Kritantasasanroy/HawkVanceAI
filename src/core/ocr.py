@@ -8,10 +8,19 @@ import os
 
 class OCRProcessor:
     def __init__(self, tesseract_path: Optional[str] = None):
+        # Try to set Tesseract path if provided
         if tesseract_path:
-            if not os.path.exists(tesseract_path):
-                raise RuntimeError(f"Tesseract not found at: {tesseract_path}")
-            pytesseract.pytesseract.tesseract_cmd = tesseract_path
+            if tesseract_path != 'tesseract' and not os.path.exists(tesseract_path):
+                logging.warning(f"Tesseract not found at specified path: {tesseract_path}")
+                tesseract_path = None
+            else:
+                pytesseract.pytesseract.tesseract_cmd = tesseract_path
+        
+        # If no valid path provided, try to find Tesseract automatically
+        if not tesseract_path:
+            tesseract_path = self._find_tesseract()
+            if tesseract_path:
+                pytesseract.pytesseract.tesseract_cmd = tesseract_path
             
         # Verify Tesseract installation
         try:
@@ -26,6 +35,30 @@ class OCRProcessor:
                 "3. Add installation path to system PATH\n"
                 "4. Or update TESSERACT_PATH in config/settings.py"
             )
+    
+    def _find_tesseract(self) -> Optional[str]:
+        """Try to find Tesseract installation automatically"""
+        import shutil
+        
+        # Check if tesseract is in PATH
+        tesseract_in_path = shutil.which('tesseract')
+        if tesseract_in_path:
+            logging.info(f"Found Tesseract in PATH: {tesseract_in_path}")
+            return tesseract_in_path
+        
+        # Check common installation paths
+        common_paths = [
+            r'C:\Program Files\Tesseract-OCR\tesseract.exe',
+            r'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe',
+        ]
+        
+        for path in common_paths:
+            if os.path.exists(path):
+                logging.info(f"Found Tesseract at: {path}")
+                return path
+        
+        logging.warning("Could not find Tesseract installation automatically")
+        return None
             
     def preprocess_image(self, image: np.ndarray) -> np.ndarray:
         """Preprocess image for better OCR results"""

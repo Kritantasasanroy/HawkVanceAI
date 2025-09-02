@@ -187,3 +187,1104 @@ message: "API key not valid. Please pass a valid API key."
 2025-03-09 08:40:10,073 - root - INFO - Starting HawkVance AI
 2025-03-09 08:40:10,108 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
 2025-03-09 08:40:10,109 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-01 13:46:03,953 - root - INFO - Starting HawkVance AI
+2025-09-01 13:46:03,954 - root - ERROR - Application error: Tesseract not found at: C:\Users\kunda\AppData\Local\Programs\Tesseract-OCR\tesseract.exe
+Traceback (most recent call last):
+  File "C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\main.py", line 35, in main
+    ocr_processor = OCRProcessor(tesseract_path=TESSERACT_PATH)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\src\core\ocr.py", line 13, in __init__
+    raise RuntimeError(f"Tesseract not found at: {tesseract_path}")
+RuntimeError: Tesseract not found at: C:\Users\kunda\AppData\Local\Programs\Tesseract-OCR\tesseract.exe
+2025-09-01 13:47:07,621 - root - INFO - Starting HawkVance AI
+2025-09-01 13:47:07,787 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-01 13:47:07,788 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-01 13:47:07,789 - root - ERROR - Application error: [WinError 5] Access is denied: 'C:\\Users\\kunda'
+Traceback (most recent call last):
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\kunda\\OneDrive - K L University\\HawkVanceAI\\exports'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\kunda\\OneDrive - K L University\\HawkVanceAI'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\kunda\\OneDrive - K L University'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\main.py", line 38, in main
+    document_exporter = DocumentExporter()
+                        ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\src\utils\export.py", line 12, in __init__
+    self.output_dir.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1315, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1315, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1315, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\kunda'
+2025-09-01 13:48:30,427 - root - INFO - Starting HawkVance AI
+2025-09-01 13:48:30,492 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-01 13:48:30,492 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-01 13:48:30,494 - root - ERROR - Application error: [WinError 5] Access is denied: 'C:\\Users\\kunda'
+Traceback (most recent call last):
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\kunda\\OneDrive - K L University\\HawkVanceAI\\exports'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\kunda\\OneDrive - K L University\\HawkVanceAI'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'C:\\Users\\kunda\\OneDrive - K L University'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\main.py", line 57, in main
+    document_exporter = DocumentExporter()
+                        ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\mithu\OneDrive\Desktop\recogP\HawkVanceAI\src\utils\export.py", line 12, in __init__
+    self.output_dir.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1315, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1315, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1315, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+  File "C:\Python312\Lib\pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\kunda'
+2025-09-01 13:50:08,626 - root - INFO - Starting HawkVance AI
+2025-09-01 13:50:08,677 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-01 13:50:08,678 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-01 13:53:07,746 - root - INFO - Starting HawkVance AI
+2025-09-01 13:53:07,796 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-01 13:53:07,797 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 01:05:39,719 - root - INFO - Starting HawkVance AI
+2025-09-02 01:05:39,725 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:05:39,725 - root - INFO - Smart scrolling initialized
+2025-09-02 01:05:39,726 - root - WARNING - AI processor not available
+2025-09-02 01:05:39,767 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:05:39,768 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 01:05:40,741 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:05:40,741 - root - INFO - Smart scrolling initialized
+2025-09-02 01:05:40,743 - root - WARNING - AI processor not available
+2025-09-02 01:05:40,751 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:05:40,752 - root - INFO - Smart scrolling initialized
+2025-09-02 01:05:40,752 - root - WARNING - AI processor not available
+2025-09-02 01:05:52,203 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:05:55,419 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:05:56,889 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:05:56,889 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:05:59,153 - root - INFO - Returned to top of page
+2025-09-02 01:05:59,153 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:06:44,528 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:06:48,480 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:06:49,273 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:06:49,274 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:06:51,384 - root - INFO - Returned to top of page
+2025-09-02 01:06:51,384 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:06:59,546 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:07:03,891 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:07:04,638 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:07:04,639 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:07:06,750 - root - INFO - Returned to top of page
+2025-09-02 01:07:06,750 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:07:14,538 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:07:19,028 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:07:19,790 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:07:19,791 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:07:21,901 - root - INFO - Returned to top of page
+2025-09-02 01:07:21,902 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:07:29,536 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:07:33,984 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:07:34,736 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:07:34,736 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:07:36,848 - root - INFO - Returned to top of page
+2025-09-02 01:07:36,848 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:07:44,538 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:07:48,885 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:07:49,639 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:07:49,639 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:07:51,750 - root - INFO - Returned to top of page
+2025-09-02 01:07:51,750 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:07:59,559 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:08:03,448 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:08:04,214 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:08:04,214 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:08:06,324 - root - INFO - Returned to top of page
+2025-09-02 01:08:06,324 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:08:14,555 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:08:18,952 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:08:19,705 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:08:19,705 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:08:21,571 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:08:21,887 - root - INFO - Returned to top of page
+2025-09-02 01:08:22,218 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:08:29,569 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:08:32,725 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:08:33,488 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:08:33,489 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:08:35,598 - root - INFO - Returned to top of page
+2025-09-02 01:08:35,598 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:08:44,573 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:08:48,580 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:08:49,335 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:08:49,335 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:08:51,446 - root - INFO - Returned to top of page
+2025-09-02 01:08:51,446 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:08:59,587 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:09:03,819 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:09:04,575 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:09:04,575 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:09:06,684 - root - INFO - Returned to top of page
+2025-09-02 01:09:06,684 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:09:14,618 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:09:18,451 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:09:19,943 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:09:19,943 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:09:22,205 - root - INFO - Returned to top of page
+2025-09-02 01:09:22,205 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:09:29,610 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:09:32,458 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:09:33,939 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:09:33,941 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:09:36,202 - root - INFO - Returned to top of page
+2025-09-02 01:09:36,203 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:09:44,627 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:09:46,412 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:09:47,192 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:09:47,193 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:09:49,302 - root - INFO - Returned to top of page
+2025-09-02 01:09:49,302 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:09:59,638 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:10:03,205 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:10:03,957 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:10:03,957 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:10:06,067 - root - INFO - Returned to top of page
+2025-09-02 01:10:06,067 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:10:14,655 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:10:18,252 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:10:20,501 - root - INFO - Reached end of content at scroll position 3
+2025-09-02 01:10:20,502 - root - INFO - Scrolling back to top (3 scrolls)
+2025-09-02 01:10:22,913 - root - INFO - Returned to top of page
+2025-09-02 01:10:22,913 - root - INFO - Smart scrolling completed. Captured 4 screens
+2025-09-02 01:10:29,671 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:10:32,645 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:10:33,407 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:10:33,407 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:10:35,517 - root - INFO - Returned to top of page
+2025-09-02 01:10:35,517 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:10:44,681 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:10:47,640 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:10:49,126 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:10:49,126 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:10:51,387 - root - INFO - Returned to top of page
+2025-09-02 01:10:51,387 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:10:59,682 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:11:02,998 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:11:03,776 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:11:03,776 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:11:05,886 - root - INFO - Returned to top of page
+2025-09-02 01:11:05,886 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:11:14,677 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:11:17,636 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:11:20,640 - root - INFO - Scroll progress: 5/5
+2025-09-02 01:11:20,640 - root - INFO - Scrolling back to top (5 scrolls)
+2025-09-02 01:11:23,356 - root - INFO - Returned to top of page
+2025-09-02 01:11:23,356 - root - INFO - Smart scrolling completed. Captured 5 screens
+2025-09-02 01:11:29,701 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:11:32,206 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:11:33,738 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:11:33,740 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:11:35,999 - root - INFO - Returned to top of page
+2025-09-02 01:11:35,999 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:11:44,690 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:11:46,883 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:11:47,638 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:11:47,640 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:11:49,750 - root - INFO - Returned to top of page
+2025-09-02 01:11:49,750 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:11:59,692 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:12:03,641 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:12:04,408 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:12:04,410 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:12:06,518 - root - INFO - Returned to top of page
+2025-09-02 01:12:06,518 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:12:14,704 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:12:17,899 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:12:18,660 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:12:18,660 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:12:20,769 - root - INFO - Returned to top of page
+2025-09-02 01:12:20,769 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:12:30,516 - root - INFO - Starting HawkVance AI
+2025-09-02 01:12:30,516 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:12:30,517 - root - INFO - Smart scrolling initialized
+2025-09-02 01:12:30,517 - root - WARNING - AI processor not available
+2025-09-02 01:12:30,555 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:12:30,555 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 01:12:31,507 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:12:31,507 - root - INFO - Smart scrolling initialized
+2025-09-02 01:12:31,507 - root - WARNING - AI processor not available
+2025-09-02 01:12:31,517 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:12:31,517 - root - INFO - Smart scrolling initialized
+2025-09-02 01:12:31,518 - root - WARNING - AI processor not available
+2025-09-02 01:12:39,853 - root - INFO - Starting HawkVance AI
+2025-09-02 01:12:39,855 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:12:39,855 - root - INFO - Smart scrolling initialized
+2025-09-02 01:12:39,855 - root - WARNING - AI processor not available
+2025-09-02 01:12:39,892 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:12:39,893 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 01:12:40,846 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:12:40,846 - root - INFO - Smart scrolling initialized
+2025-09-02 01:12:40,848 - root - WARNING - AI processor not available
+2025-09-02 01:12:40,857 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:12:40,857 - root - INFO - Smart scrolling initialized
+2025-09-02 01:12:40,858 - root - WARNING - AI processor not available
+2025-09-02 01:17:20,535 - root - INFO - Starting HawkVance AI
+2025-09-02 01:17:20,536 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:17:20,536 - root - INFO - Smart scrolling initialized
+2025-09-02 01:17:20,536 - root - WARNING - AI processor not available
+2025-09-02 01:17:20,581 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:17:20,582 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 01:17:21,992 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:17:21,992 - root - INFO - Smart scrolling initialized
+2025-09-02 01:17:21,993 - root - WARNING - AI processor not available
+2025-09-02 01:17:22,004 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:17:22,004 - root - INFO - Smart scrolling initialized
+2025-09-02 01:17:22,005 - root - WARNING - AI processor not available
+2025-09-02 01:17:44,376 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:17:47,356 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:17:50,361 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:17:53,361 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:17:56,358 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:17:59,362 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:02,378 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:05,376 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:08,396 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:11,396 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:14,393 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:17,409 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:20,429 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:23,433 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:26,430 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:29,449 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:32,463 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:35,464 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:38,465 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:42,913 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:45,931 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:48,947 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:51,947 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:54,962 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:18:57,962 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:00,988 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:04,000 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:06,999 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:09,995 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:13,020 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:16,023 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:19,010 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:22,025 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:25,025 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:28,050 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:31,046 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:34,049 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:37,068 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:40,070 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:43,086 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:46,072 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:49,101 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:52,097 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:55,096 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:19:58,107 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:01,129 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:04,141 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:07,145 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:10,144 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:13,143 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:16,160 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:19,178 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:22,174 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:25,175 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:28,207 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:31,193 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:34,216 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:37,234 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:40,211 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:20:43,228 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:42:57,109 - root - INFO - Starting HawkVance AI
+2025-09-02 01:42:57,110 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:42:57,110 - root - INFO - Smart scrolling initialized
+2025-09-02 01:42:57,111 - root - WARNING - AI processor not available
+2025-09-02 01:42:57,149 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 01:42:57,149 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 01:42:58,132 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:42:58,132 - root - INFO - Smart scrolling initialized
+2025-09-02 01:42:58,134 - root - WARNING - AI processor not available
+2025-09-02 01:42:58,142 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 01:42:58,143 - root - INFO - Smart scrolling initialized
+2025-09-02 01:42:58,143 - root - WARNING - AI processor not available
+2025-09-02 01:44:05,624 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:05,625 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:06,484 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:06,485 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:06,485 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:06,486 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:08,603 - root - INFO - Returned to top of page
+2025-09-02 01:44:08,603 - root - INFO - Returned to top of page
+2025-09-02 01:44:08,603 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:08,603 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:08,920 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:09,963 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:09,964 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:11,680 - root - INFO - Combined text extraction complete. Total length: 498 characters
+2025-09-02 01:44:11,826 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:12,170 - root - INFO - Returned to top of page
+2025-09-02 01:44:12,170 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:12,792 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:12,793 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:14,837 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:14,951 - root - INFO - Returned to top of page
+2025-09-02 01:44:14,951 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:15,642 - root - INFO - Combined text extraction complete. Total length: 440 characters
+2025-09-02 01:44:15,667 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:15,668 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:17,821 - root - INFO - Returned to top of page
+2025-09-02 01:44:17,821 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:18,433 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:18,518 - root - INFO - Combined text extraction complete. Total length: 462 characters
+2025-09-02 01:44:19,211 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:19,211 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:20,868 - root - INFO - Combined text extraction complete. Total length: 455 characters
+2025-09-02 01:44:21,098 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:21,395 - root - INFO - Returned to top of page
+2025-09-02 01:44:21,395 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:22,125 - root - INFO - Combined text extraction complete. Total length: 433 characters
+2025-09-02 01:44:24,113 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:24,251 - root - INFO - Reached end of content at scroll position 4
+2025-09-02 01:44:24,251 - root - INFO - Scrolling back to top (4 scrolls)
+2025-09-02 01:44:24,350 - root - INFO - Combined text extraction complete. Total length: 433 characters
+2025-09-02 01:44:25,597 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:44:25,597 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:44:26,817 - root - INFO - Returned to top of page
+2025-09-02 01:44:26,818 - root - INFO - Smart scrolling completed. Captured 5 screens
+2025-09-02 01:44:27,424 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:27,977 - root - INFO - Returned to top of page
+2025-09-02 01:44:27,977 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:44:29,356 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:44:29,363 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:44:30,363 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:31,211 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:31,212 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:31,851 - root - INFO - Returned to top of page
+2025-09-02 01:44:32,079 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:44:33,364 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:33,499 - root - INFO - Returned to top of page
+2025-09-02 01:44:33,499 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:34,246 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:34,246 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:35,008 - root - INFO - Combined text extraction complete. Total length: 1238 characters
+2025-09-02 01:44:36,375 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:36,416 - root - INFO - Returned to top of page
+2025-09-02 01:44:36,416 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:37,522 - root - INFO - Combined text extraction complete. Total length: 721 characters
+2025-09-02 01:44:39,375 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:39,545 - root - INFO - Scroll progress: 5/5
+2025-09-02 01:44:39,546 - root - INFO - Scrolling back to top (5 scrolls)
+2025-09-02 01:44:40,236 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:40,236 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:40,660 - root - INFO - Combined text extraction complete. Total length: 641 characters
+2025-09-02 01:44:42,433 - root - INFO - Returned to top of page
+2025-09-02 01:44:42,437 - root - INFO - Smart scrolling completed. Captured 5 screens
+2025-09-02 01:44:42,480 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:42,483 - root - INFO - Returned to top of page
+2025-09-02 01:44:42,600 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:43,298 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:43,298 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:43,675 - root - INFO - Combined text extraction complete. Total length: 721 characters
+2025-09-02 01:44:43,980 - root - INFO - Combined text extraction complete. Total length: 1334 characters
+2025-09-02 01:44:45,403 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:45,433 - root - INFO - Returned to top of page
+2025-09-02 01:44:45,433 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:46,207 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:46,207 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:48,365 - root - INFO - Returned to top of page
+2025-09-02 01:44:48,366 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:48,840 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:49,716 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 01:44:49,717 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 01:44:49,845 - root - INFO - Combined text extraction complete. Total length: 963 characters
+2025-09-02 01:44:51,674 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:51,873 - root - INFO - Combined text extraction complete. Total length: 630 characters
+2025-09-02 01:44:51,877 - root - INFO - Returned to top of page
+2025-09-02 01:44:51,877 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 01:44:53,299 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:44:53,300 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:44:54,682 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:55,390 - root - INFO - Combined text extraction complete. Total length: 630 characters
+2025-09-02 01:44:55,758 - root - INFO - Returned to top of page
+2025-09-02 01:44:55,892 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:44:56,281 - root - INFO - Combined text extraction complete. Total length: 671 characters
+2025-09-02 01:44:56,291 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 01:44:56,292 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 01:44:57,907 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:44:58,682 - root - INFO - Returned to top of page
+2025-09-02 01:44:58,683 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 01:45:00,402 - root - INFO - Reached end of content at scroll position 3
+2025-09-02 01:45:00,403 - root - INFO - Scrolling back to top (3 scrolls)
+2025-09-02 01:45:00,748 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:45:02,157 - root - INFO - Combined text extraction complete. Total length: 942 characters
+2025-09-02 01:45:03,035 - root - INFO - Returned to top of page
+2025-09-02 01:45:03,069 - root - INFO - Smart scrolling completed. Captured 4 screens
+2025-09-02 01:45:03,210 - root - INFO - Reached end of content at scroll position 3
+2025-09-02 01:45:03,211 - root - INFO - Scrolling back to top (3 scrolls)
+2025-09-02 01:45:03,763 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 01:45:04,320 - root - INFO - Combined text extraction complete. Total length: 1050 characters
+2025-09-02 01:45:05,663 - root - INFO - Returned to top of page
+2025-09-02 01:45:05,664 - root - INFO - Smart scrolling completed. Captured 4 screens
+2025-09-02 01:45:06,118 - root - INFO - Reached end of content at scroll position 3
+2025-09-02 01:45:06,131 - root - INFO - Scrolling back to top (3 scrolls)
+2025-09-02 01:45:08,755 - root - INFO - Returned to top of page
+2025-09-02 01:45:08,756 - root - INFO - Smart scrolling completed. Captured 4 screens
+2025-09-02 01:45:16,231 - root - INFO - Combined text extraction complete. Total length: 1033 characters
+2025-09-02 01:45:17,290 - root - INFO - Combined text extraction complete. Total length: 2235 characters
+2025-09-02 01:45:19,762 - root - INFO - Combined text extraction complete. Total length: 1897 characters
+2025-09-02 01:45:21,165 - root - INFO - Combined text extraction complete. Total length: 1757 characters
+2025-09-02 02:01:41,231 - root - INFO - Starting HawkVance AI
+2025-09-02 02:01:41,231 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:01:41,232 - root - INFO - Smart scrolling initialized
+2025-09-02 02:01:41,232 - root - WARNING - AI processor not available
+2025-09-02 02:01:41,275 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:01:41,275 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 02:01:42,237 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:01:42,237 - root - INFO - Smart scrolling initialized
+2025-09-02 02:01:42,238 - root - WARNING - AI processor not available
+2025-09-02 02:01:42,247 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:01:42,248 - root - INFO - Smart scrolling initialized
+2025-09-02 02:01:42,248 - root - WARNING - AI processor not available
+2025-09-02 02:02:13,516 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:02:13,560 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:02:14,361 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:02:14,362 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:02:14,363 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:02:14,363 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:02:16,471 - root - INFO - Returned to top of page
+2025-09-02 02:02:16,471 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:02:16,472 - root - INFO - Returned to top of page
+2025-09-02 02:02:16,473 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:02:16,959 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:02:17,796 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:02:17,796 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:02:19,361 - root - INFO - Combined text extraction complete. Total length: 415 characters
+2025-09-02 02:02:19,868 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:02:19,970 - root - INFO - Returned to top of page
+2025-09-02 02:02:19,970 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:02:20,699 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:02:20,700 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:02:22,799 - root - INFO - Combined text extraction complete. Total length: 638 characters
+2025-09-02 02:02:22,871 - root - INFO - Returned to top of page
+2025-09-02 02:02:22,871 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:02:22,875 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:02:23,689 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:02:23,689 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:02:25,859 - root - INFO - Returned to top of page
+2025-09-02 02:02:25,859 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:02:26,415 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:02:27,031 - root - INFO - Combined text extraction complete. Total length: 821 characters
+2025-09-02 02:02:28,081 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 02:02:28,106 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 02:02:29,177 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:02:29,509 - root - INFO - Combined text extraction complete. Total length: 415 characters
+2025-09-02 02:02:29,712 - root - INFO - Combined text extraction complete. Total length: 929 characters
+2025-09-02 02:02:30,392 - root - INFO - Returned to top of page
+2025-09-02 02:02:30,392 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 02:02:30,861 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 02:02:31,003 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 02:02:33,463 - root - INFO - Returned to top of page
+2025-09-02 02:02:33,463 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 02:02:36,555 - root - INFO - Combined text extraction complete. Total length: 1626 characters
+2025-09-02 02:02:39,176 - root - INFO - Combined text extraction complete. Total length: 1540 characters
+2025-09-02 02:13:56,853 - root - INFO - Starting HawkVance AI
+2025-09-02 02:13:56,854 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:13:56,855 - root - INFO - Smart scrolling initialized
+2025-09-02 02:13:56,855 - root - WARNING - AI processor not available
+2025-09-02 02:13:56,908 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:13:56,909 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 02:13:57,974 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:13:57,974 - root - INFO - Smart scrolling initialized
+2025-09-02 02:13:57,975 - root - WARNING - AI processor not available
+2025-09-02 02:13:57,987 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:13:57,987 - root - INFO - Smart scrolling initialized
+2025-09-02 02:13:57,989 - root - WARNING - AI processor not available
+2025-09-02 02:14:39,790 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:39,791 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:40,734 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:14:40,735 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:14:40,737 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:14:40,738 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:14:42,790 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:42,885 - root - INFO - Returned to top of page
+2025-09-02 02:14:42,885 - root - INFO - Returned to top of page
+2025-09-02 02:14:42,885 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:14:42,886 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:14:43,867 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:14:43,868 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:14:45,799 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:46,078 - root - INFO - Returned to top of page
+2025-09-02 02:14:46,078 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:14:46,718 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:14:46,847 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:14:47,211 - root - INFO - Combined text extraction complete. Total length: 390 characters
+2025-09-02 02:14:48,813 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:49,165 - root - INFO - Returned to top of page
+2025-09-02 02:14:49,165 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:14:49,881 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:14:49,975 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:14:50,543 - root - INFO - Combined text extraction complete. Total length: 446 characters
+2025-09-02 02:14:51,826 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:52,240 - root - INFO - Returned to top of page
+2025-09-02 02:14:52,240 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:14:52,744 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:14:52,890 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:14:53,502 - root - INFO - Combined text extraction complete. Total length: 377 characters
+2025-09-02 02:14:55,085 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:55,202 - root - INFO - Returned to top of page
+2025-09-02 02:14:55,209 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:14:56,660 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 02:14:56,661 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 02:14:56,961 - root - INFO - Combined text extraction complete. Total length: 911 characters
+2025-09-02 02:14:57,925 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:14:58,623 - root - INFO - Combined text extraction complete. Total length: 390 characters
+2025-09-02 02:14:58,695 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:14:58,695 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:14:58,933 - root - INFO - Returned to top of page
+2025-09-02 02:14:58,934 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 02:15:00,931 - root - INFO - Returned to top of page
+2025-09-02 02:15:00,931 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:00,934 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:01,943 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:02,149 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:04,029 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:04,577 - root - INFO - Returned to top of page
+2025-09-02 02:15:04,585 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:04,949 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:04,949 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:05,481 - root - INFO - Combined text extraction complete. Total length: 693 characters
+2025-09-02 02:15:05,869 - root - INFO - Combined text extraction complete. Total length: 1477 characters
+2025-09-02 02:15:07,020 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:07,062 - root - INFO - Returned to top of page
+2025-09-02 02:15:07,063 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:07,978 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:07,980 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:10,036 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:10,376 - root - INFO - Returned to top of page
+2025-09-02 02:15:10,376 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:10,954 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:10,970 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:11,403 - root - INFO - Combined text extraction complete. Total length: 393 characters
+2025-09-02 02:15:12,940 - root - INFO - Combined text extraction complete. Total length: 994 characters
+2025-09-02 02:15:13,046 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:13,305 - root - INFO - Returned to top of page
+2025-09-02 02:15:13,305 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:14,030 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:14,031 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:14,200 - root - INFO - Combined text extraction complete. Total length: 418 characters
+2025-09-02 02:15:16,060 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:16,308 - root - INFO - Returned to top of page
+2025-09-02 02:15:16,308 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:16,976 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:16,988 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:17,137 - root - INFO - Combined text extraction complete. Total length: 510 characters
+2025-09-02 02:15:19,066 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:19,337 - root - INFO - Returned to top of page
+2025-09-02 02:15:19,337 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:20,097 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:20,107 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:20,478 - root - INFO - Combined text extraction complete. Total length: 420 characters
+2025-09-02 02:15:20,886 - root - INFO - Combined text extraction complete. Total length: 386 characters
+2025-09-02 02:15:22,081 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:22,324 - root - INFO - Returned to top of page
+2025-09-02 02:15:22,325 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:23,008 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:23,058 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:23,298 - root - INFO - Combined text extraction complete. Total length: 672 characters
+2025-09-02 02:15:25,090 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:25,275 - root - INFO - Returned to top of page
+2025-09-02 02:15:25,276 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:26,014 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:26,015 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:26,391 - root - INFO - Combined text extraction complete. Total length: 471 characters
+2025-09-02 02:15:28,093 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:28,207 - root - INFO - Returned to top of page
+2025-09-02 02:15:28,208 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:28,963 - root - INFO - Combined text extraction complete. Total length: 427 characters
+2025-09-02 02:15:29,027 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:29,028 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:31,104 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:31,240 - root - INFO - Returned to top of page
+2025-09-02 02:15:31,240 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:32,010 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:32,010 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:32,348 - root - INFO - Combined text extraction complete. Total length: 496 characters
+2025-09-02 02:15:34,118 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:34,216 - root - INFO - Returned to top of page
+2025-09-02 02:15:34,216 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:35,060 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:35,060 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:35,436 - root - INFO - Combined text extraction complete. Total length: 407 characters
+2025-09-02 02:15:37,123 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:37,364 - root - INFO - Returned to top of page
+2025-09-02 02:15:37,364 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:38,068 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:38,069 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:38,413 - root - INFO - Combined text extraction complete. Total length: 458 characters
+2025-09-02 02:15:40,132 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:40,374 - root - INFO - Returned to top of page
+2025-09-02 02:15:40,374 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:41,078 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:41,081 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:41,294 - root - INFO - Combined text extraction complete. Total length: 459 characters
+2025-09-02 02:15:43,135 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:43,375 - root - INFO - Returned to top of page
+2025-09-02 02:15:43,375 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:44,042 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:44,055 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:44,355 - root - INFO - Combined text extraction complete. Total length: 458 characters
+2025-09-02 02:15:46,139 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:46,231 - root - INFO - Returned to top of page
+2025-09-02 02:15:46,232 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:47,018 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:47,019 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:47,473 - root - INFO - Combined text extraction complete. Total length: 508 characters
+2025-09-02 02:15:49,152 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:49,196 - root - INFO - Returned to top of page
+2025-09-02 02:15:49,197 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:50,164 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:50,164 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:50,313 - root - INFO - Combined text extraction complete. Total length: 507 characters
+2025-09-02 02:15:52,157 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:52,346 - root - INFO - Returned to top of page
+2025-09-02 02:15:52,346 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:53,036 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:53,040 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:53,359 - root - INFO - Combined text extraction complete. Total length: 417 characters
+2025-09-02 02:15:55,168 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:15:55,273 - root - INFO - Returned to top of page
+2025-09-02 02:15:55,273 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:56,064 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:15:56,065 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:15:56,323 - root - INFO - Combined text extraction complete. Total length: 458 characters
+2025-09-02 02:15:58,246 - root - INFO - Returned to top of page
+2025-09-02 02:15:58,247 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:15:58,951 - root - INFO - Combined text extraction complete. Total length: 379 characters
+2025-09-02 02:16:01,527 - root - INFO - Combined text extraction complete. Total length: 349 characters
+2025-09-02 02:16:20,834 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:31:22,702 - root - INFO - Starting HawkVance AI
+2025-09-02 02:31:22,703 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:31:22,703 - root - INFO - Smart scrolling initialized
+2025-09-02 02:31:22,704 - root - WARNING - AI processor not available
+2025-09-02 02:31:22,749 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:31:22,749 - root - INFO - Gemini 2.0 API initialized successfully
+2025-09-02 02:31:23,830 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:31:23,830 - root - INFO - Smart scrolling initialized
+2025-09-02 02:31:23,831 - root - WARNING - AI processor not available
+2025-09-02 02:31:23,842 - root - INFO - Basic ScreenCapture initialized
+2025-09-02 02:31:23,843 - root - INFO - Smart scrolling initialized
+2025-09-02 02:31:23,843 - root - WARNING - AI processor not available
+2025-09-02 02:31:46,633 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:31:46,633 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:31:47,644 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:31:47,645 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:31:47,650 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:31:47,650 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:31:49,633 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:31:49,759 - root - INFO - Returned to top of page
+2025-09-02 02:31:49,760 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:31:49,764 - root - INFO - Returned to top of page
+2025-09-02 02:31:49,769 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:31:50,739 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:31:50,740 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:31:52,635 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:31:52,982 - root - INFO - Returned to top of page
+2025-09-02 02:31:52,983 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:31:53,613 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:31:53,663 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:31:54,027 - root - INFO - Combined text extraction complete. Total length: 389 characters
+2025-09-02 02:31:55,635 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:31:55,887 - root - INFO - Returned to top of page
+2025-09-02 02:31:55,888 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:31:56,573 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:31:56,632 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:31:56,917 - root - INFO - Combined text extraction complete. Total length: 663 characters
+2025-09-02 02:31:58,638 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:31:58,769 - root - INFO - Returned to top of page
+2025-09-02 02:31:58,769 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:31:59,901 - root - INFO - Combined text extraction complete. Total length: 389 characters
+2025-09-02 02:32:00,276 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 02:32:00,277 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 02:32:01,673 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:02,496 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:02,497 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:02,643 - root - INFO - Returned to top of page
+2025-09-02 02:32:02,643 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 02:32:03,802 - root - INFO - Combined text extraction complete. Total length: 858 characters
+2025-09-02 02:32:04,642 - root - INFO - Returned to top of page
+2025-09-02 02:32:04,642 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:05,412 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:06,266 - root - INFO - Combined text extraction complete. Total length: 368 characters
+2025-09-02 02:32:08,598 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:09,334 - root - INFO - Combined text extraction complete. Total length: 347 characters
+2025-09-02 02:32:09,521 - root - INFO - Combined text extraction complete. Total length: 1496 characters
+2025-09-02 02:32:11,150 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:12,886 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:12,963 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:13,669 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:13,669 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:13,732 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:13,733 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:15,158 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:15,795 - root - INFO - Returned to top of page
+2025-09-02 02:32:15,795 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:16,466 - root - INFO - Returned to top of page
+2025-09-02 02:32:16,499 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:16,640 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:16,641 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:18,977 - root - INFO - Returned to top of page
+2025-09-02 02:32:18,978 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:20,237 - root - INFO - Combined text extraction complete. Total length: 563 characters
+2025-09-02 02:32:22,247 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:22,254 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:23,492 - root - INFO - Combined text extraction complete. Total length: 551 characters
+2025-09-02 02:32:24,204 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:25,133 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:25,133 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:25,194 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:26,764 - root - INFO - Combined text extraction complete. Total length: 563 characters
+2025-09-02 02:32:26,945 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:27,343 - root - INFO - Returned to top of page
+2025-09-02 02:32:27,343 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:27,919 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:27,920 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:28,239 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:30,230 - root - INFO - Returned to top of page
+2025-09-02 02:32:30,230 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:30,983 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:31,215 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:31,956 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:31,957 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:32,632 - root - INFO - Combined text extraction complete. Total length: 881 characters
+2025-09-02 02:32:33,490 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:34,146 - root - INFO - Returned to top of page
+2025-09-02 02:32:34,146 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:34,915 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:35,165 - root - INFO - Combined text extraction complete. Total length: 343 characters
+2025-09-02 02:32:36,853 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:36,912 - root - INFO - Scroll progress: 5/5
+2025-09-02 02:32:36,913 - root - INFO - Scrolling back to top (5 scrolls)
+2025-09-02 02:32:37,203 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:38,279 - root - INFO - Combined text extraction complete. Total length: 343 characters
+2025-09-02 02:32:38,994 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:39,222 - root - INFO - Reached end of content at scroll position 3
+2025-09-02 02:32:39,223 - root - INFO - Scrolling back to top (3 scrolls)
+2025-09-02 02:32:39,781 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:39,782 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:39,800 - root - INFO - Returned to top of page
+2025-09-02 02:32:39,800 - root - INFO - Smart scrolling completed. Captured 5 screens
+2025-09-02 02:32:40,684 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:41,952 - root - INFO - Returned to top of page
+2025-09-02 02:32:41,953 - root - INFO - Smart scrolling completed. Captured 4 screens
+2025-09-02 02:32:42,047 - root - INFO - Returned to top of page
+2025-09-02 02:32:42,078 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:42,745 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:43,928 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:43,993 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:44,158 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:46,339 - root - INFO - Returned to top of page
+2025-09-02 02:32:46,339 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:47,280 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:50,319 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:50,432 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:32:50,909 - root - INFO - Combined text extraction complete. Total length: 1464 characters
+2025-09-02 02:32:51,077 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:51,128 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:51,128 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:52,078 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:52,079 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:52,174 - root - INFO - Combined text extraction complete. Total length: 402 characters
+2025-09-02 02:32:53,116 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:53,197 - root - INFO - Combined text extraction complete. Total length: 402 characters
+2025-09-02 02:32:53,372 - root - INFO - Returned to top of page
+2025-09-02 02:32:53,372 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:54,240 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:54,240 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:32:54,496 - root - INFO - Returned to top of page
+2025-09-02 02:32:54,496 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:56,482 - root - INFO - Returned to top of page
+2025-09-02 02:32:56,683 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:32:59,182 - root - INFO - Combined text extraction complete. Total length: 976 characters
+2025-09-02 02:32:59,208 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:32:59,778 - root - INFO - Combined text extraction complete. Total length: 1031 characters
+2025-09-02 02:32:59,980 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:32:59,980 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:02,159 - root - INFO - Returned to top of page
+2025-09-02 02:33:02,239 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:02,660 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:02,661 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:03,611 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:03,612 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:03,616 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:03,617 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:03,800 - root - INFO - Combined text extraction complete. Total length: 623 characters
+2025-09-02 02:33:05,564 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:05,974 - root - INFO - Returned to top of page
+2025-09-02 02:33:05,975 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:06,101 - root - INFO - Returned to top of page
+2025-09-02 02:33:06,369 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:07,214 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 02:33:07,214 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 02:33:07,700 - root - INFO - Combined text extraction complete. Total length: 677 characters
+2025-09-02 02:33:08,828 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:09,571 - root - INFO - Returned to top of page
+2025-09-02 02:33:09,571 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 02:33:09,802 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:09,803 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:11,694 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:11,786 - root - INFO - Combined text extraction complete. Total length: 902 characters
+2025-09-02 02:33:12,116 - root - INFO - Returned to top of page
+2025-09-02 02:33:12,116 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:12,692 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:12,823 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:14,520 - root - INFO - Combined text extraction complete. Total length: 676 characters
+2025-09-02 02:33:14,943 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:15,093 - root - INFO - Returned to top of page
+2025-09-02 02:33:15,096 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:16,024 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:16,033 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:16,893 - root - INFO - Combined text extraction complete. Total length: 404 characters
+2025-09-02 02:33:17,123 - root - INFO - Combined text extraction complete. Total length: 743 characters
+2025-09-02 02:33:17,845 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:18,145 - root - INFO - Returned to top of page
+2025-09-02 02:33:18,145 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:19,012 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:19,015 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:21,418 - root - INFO - Returned to top of page
+2025-09-02 02:33:21,418 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:22,614 - root - INFO - Combined text extraction complete. Total length: 407 characters
+2025-09-02 02:33:24,271 - root - INFO - Combined text extraction complete. Total length: 902 characters
+2025-09-02 02:33:24,749 - root - INFO - Combined text extraction complete. Total length: 404 characters
+2025-09-02 02:33:25,411 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:25,419 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:27,297 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:28,084 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:28,084 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:28,351 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:30,169 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:30,259 - root - INFO - Returned to top of page
+2025-09-02 02:33:30,259 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:31,085 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:31,086 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:31,343 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:32,047 - root - INFO - Combined text extraction complete. Total length: 407 characters
+2025-09-02 02:33:33,383 - root - INFO - Returned to top of page
+2025-09-02 02:33:33,383 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:33,770 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:34,156 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:34,347 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:34,903 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:35,016 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:35,105 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:35,105 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:35,161 - root - INFO - Combined text extraction complete. Total length: 403 characters
+2025-09-02 02:33:35,172 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:33:35,173 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:33:35,173 - root - INFO - Web intelligence module initialized
+2025-09-02 02:33:35,247 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:37,189 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:37,292 - root - INFO - Returned to top of page
+2025-09-02 02:33:37,292 - root - INFO - Returned to top of page
+2025-09-02 02:33:37,293 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:37,294 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:38,149 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:38,149 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:38,174 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:40,513 - root - INFO - Returned to top of page
+2025-09-02 02:33:40,520 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:40,581 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:42,986 - root - INFO - Combined text extraction complete. Total length: 676 characters
+2025-09-02 02:33:42,988 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:33:42,989 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:33:42,989 - root - INFO - Web intelligence module initialized
+2025-09-02 02:33:43,087 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:43,984 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:45,906 - root - INFO - Combined text extraction complete. Total length: 676 characters
+2025-09-02 02:33:45,909 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:33:45,910 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:33:45,910 - root - INFO - Web intelligence module initialized
+2025-09-02 02:33:46,014 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:46,868 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:46,912 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:47,720 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:47,721 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:47,883 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:48,661 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:48,662 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:50,088 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:50,135 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:50,185 - root - INFO - Returned to top of page
+2025-09-02 02:33:50,185 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:51,016 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:33:51,017 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:33:51,202 - root - INFO - Returned to top of page
+2025-09-02 02:33:51,203 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:51,965 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:33:52,816 - root - INFO - Combined text extraction complete. Total length: 727 characters
+2025-09-02 02:33:52,819 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:33:52,820 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:33:52,820 - root - INFO - Web intelligence module initialized
+2025-09-02 02:33:52,905 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:53,179 - root - INFO - Returned to top of page
+2025-09-02 02:33:53,348 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:33:53,730 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 02:33:53,730 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 02:33:53,739 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:56,283 - root - INFO - Returned to top of page
+2025-09-02 02:33:56,299 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 02:33:56,488 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:57,231 - root - INFO - Combined text extraction complete. Total length: 676 characters
+2025-09-02 02:33:57,232 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:33:57,235 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:33:57,235 - root - INFO - Web intelligence module initialized
+2025-09-02 02:33:57,323 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:33:59,067 - root - INFO - Combined text extraction complete. Total length: 1691 characters
+2025-09-02 02:33:59,069 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:33:59,071 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:33:59,071 - root - INFO - Web intelligence module initialized
+2025-09-02 02:33:59,158 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:00,019 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:00,471 - root - INFO - Combined text extraction complete. Total length: 1691 characters
+2025-09-02 02:34:00,473 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:00,475 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:00,475 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:00,585 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:01,974 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:02,635 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:04,365 - root - INFO - Reached end of content at scroll position 3
+2025-09-02 02:34:04,366 - root - INFO - Scrolling back to top (3 scrolls)
+2025-09-02 02:34:04,850 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:05,706 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:05,807 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:06,608 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:07,479 - root - INFO - Returned to top of page
+2025-09-02 02:34:07,513 - root - INFO - Smart scrolling completed. Captured 4 screens
+2025-09-02 02:34:08,285 - root - INFO - Scroll progress: 5/5
+2025-09-02 02:34:08,286 - root - INFO - Scrolling back to top (5 scrolls)
+2025-09-02 02:34:08,483 - root - INFO - Combined text extraction complete. Total length: 1691 characters
+2025-09-02 02:34:08,484 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:08,485 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:08,485 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:08,607 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:09,164 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:09,185 - root - INFO - Scroll progress: 5/5
+2025-09-02 02:34:09,205 - root - INFO - Scrolling back to top (5 scrolls)
+2025-09-02 02:34:10,111 - root - INFO - Scroll progress: 5/5
+2025-09-02 02:34:10,112 - root - INFO - Scrolling back to top (5 scrolls)
+2025-09-02 02:34:10,840 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:11,480 - root - INFO - Returned to top of page
+2025-09-02 02:34:11,517 - root - INFO - Smart scrolling completed. Captured 5 screens
+2025-09-02 02:34:12,119 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:12,535 - root - INFO - Returned to top of page
+2025-09-02 02:34:12,535 - root - INFO - Smart scrolling completed. Captured 5 screens
+2025-09-02 02:34:13,759 - root - INFO - Returned to top of page
+2025-09-02 02:34:13,759 - root - INFO - Smart scrolling completed. Captured 5 screens
+2025-09-02 02:34:14,363 - root - INFO - Reached end of content at scroll position 3
+2025-09-02 02:34:14,408 - root - INFO - Scrolling back to top (3 scrolls)
+2025-09-02 02:34:15,859 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:16,045 - root - INFO - Combined text extraction complete. Total length: 2741 characters
+2025-09-02 02:34:16,047 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:16,048 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:16,048 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:16,132 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:16,966 - root - INFO - Returned to top of page
+2025-09-02 02:34:16,970 - root - INFO - Smart scrolling completed. Captured 4 screens
+2025-09-02 02:34:17,763 - root - INFO - Reached end of content at scroll position 2
+2025-09-02 02:34:18,008 - root - INFO - Scrolling back to top (2 scrolls)
+2025-09-02 02:34:20,259 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:20,489 - root - INFO - Returned to top of page
+2025-09-02 02:34:20,502 - root - INFO - Smart scrolling completed. Captured 3 screens
+2025-09-02 02:34:21,292 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:34:21,293 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:34:21,400 - root - INFO - Starting smart scrolling capture (max_scrolls: 5)
+2025-09-02 02:34:22,523 - root - INFO - Reached end of content at scroll position 1
+2025-09-02 02:34:22,530 - root - INFO - Scrolling back to top (1 scrolls)
+2025-09-02 02:34:23,764 - root - INFO - Returned to top of page
+2025-09-02 02:34:23,764 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:34:24,988 - root - INFO - Returned to top of page
+2025-09-02 02:34:24,989 - root - INFO - Smart scrolling completed. Captured 2 screens
+2025-09-02 02:34:29,212 - root - INFO - Combined text extraction complete. Total length: 1500 characters
+2025-09-02 02:34:29,215 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:29,216 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:29,216 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:29,304 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:30,977 - root - INFO - Combined text extraction complete. Total length: 859 characters
+2025-09-02 02:34:30,979 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:30,981 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:30,981 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:31,084 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:37,919 - root - INFO - Combined text extraction complete. Total length: 859 characters
+2025-09-02 02:34:37,920 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:37,921 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:37,921 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:38,017 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:42,009 - root - INFO - Combined text extraction complete. Total length: 4433 characters
+2025-09-02 02:34:42,011 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:42,012 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:42,013 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:42,107 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:44,932 - root - INFO - Combined text extraction complete. Total length: 888 characters
+2025-09-02 02:34:44,934 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:44,934 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:44,935 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:45,017 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:45,965 - root - INFO - Combined text extraction complete. Total length: 3719 characters
+2025-09-02 02:34:45,966 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:45,967 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:45,968 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:46,047 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:47,092 - root - INFO - Combined text extraction complete. Total length: 4580 characters
+2025-09-02 02:34:47,094 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:47,095 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:47,095 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:47,184 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:34:51,507 - root - INFO - Combined text extraction complete. Total length: 2525 characters
+2025-09-02 02:34:51,509 - root - WARNING - Selenium not available - install for full web intelligence
+2025-09-02 02:34:51,510 - root - WARNING - BeautifulSoup not available - install for web parsing
+2025-09-02 02:34:51,511 - root - INFO - Web intelligence module initialized
+2025-09-02 02:34:51,605 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:35:02,649 - root - INFO - Tesseract OCR initialized successfully (version: 5.5.0.20241111)
+2025-09-02 02:35:04,855 - root - INFO - Processing question with Gemini: what is photosynthesis...
+2025-09-02 02:35:10,497 - root - INFO - Gemini result type: <class 'src.core.gemini_api.AnalysisResult'>
+2025-09-02 02:35:10,498 - root - INFO - Using ai_result.summary
+2025-09-02 02:35:10,498 - root - INFO - Final response length: 4183
