@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- The HawkVance mark: a hawk's head facing right, inside a heavy ring.
+       Drawn as paths rather than shipped as a bitmap so it stays sharp at 16px in a
+       taskbar and at 1024px on a store page from the one source. `currentColor`
+       lets the in-app copy take the surrounding ink colour. -->
+
+  <!-- the ring -->
+  <path fill="currentColor" d="M256 20C125.7 20 20 125.7 20 256s105.7 236 236 236 236-105.7 236-236S386.3 20 256 20zm0 52c101.6 0 184 82.4 184 184s-82.4 184-184 184S72 357.6 72 256 154.4 72 256 72z"/>
+
+  <!-- head, hooked beak, throat and chest as one silhouette -->
+  <path fill="currentColor" d="M158 160c26-30 62-48 101-48 30 0 55 10 74 30l77 74c5 5 4 11-3 13l-70 17c8 14 12 27 12 40 0 16-6 31-18 46-23 29-35 60-35 93 0 15 3 30 10 45h-92c9-19 13-36 13-52 0-19-6-38-19-58-24-37-36-73-36-108 0-17 2-31 7-44l-21 5c-6 1-9-3-6-9z"/>
+
+  <!-- the gape, cut back through the beak as a wedge of background -->
+  <path fill="#fff" d="M321 214l86-21c6-1 9 2 6 8-9 18-24 29-45 33-19 4-36 0-50-11-4-3-3-7 3-9z"/>
+
+  <!-- the eye: an almond with a pointed inner corner -->
+  <path fill="#fff" d="M232 148c22-9 43-6 63 9 4 3 4 7 0 10-20 15-41 18-63 9-4-2-6-6-6-14s2-12 6-14z"/>
+  <circle fill="currentColor" cx="266" cy="162" r="13"/>
+
+  <!-- three swept marks where the crest breaks away from the head -->
+  <g fill="currentColor">
+    <path d="M150 196l-52 44c-5 4-3 11 4 12l58 8z"/>
+    <path d="M148 262l-40 54c-4 5 0 11 6 10l46-8z"/>
+    <path d="M156 330l-24 51c-3 6 2 11 8 8l34-16z"/>
+  </g>
+</svg>

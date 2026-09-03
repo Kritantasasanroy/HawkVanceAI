@@ -1,0 +1,38 @@
+node_modules/
+dist/
+build/
+target/
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db
+coverage/
+.turbo/
+*.tsbuildinfo
+apps/desktop/src-tauri/target/
+apps/engine/.venv/
+apps/engine/build/
+apps/engine/dist/
+apps/engine/.pytest_cache/
+__pycache__/
+# Local model weights. Anchored with ** because a pattern containing a slash
+# matches only from the repository root, which let apps/engine/models through.
+**/models/*.gguf
+**/models/*.onnx
+*.gguf
+*.onnx
+*.safetensors
+
+# The old Python prototype, kept locally but not part of this workspace. It has
+# its own git history of its own.
+HawkVanceAI/
+
+# Staged engine build output, but not the placeholder that keeps the path valid
+apps/desktop/src-tauri/resources/engine/*
+!apps/desktop/src-tauri/resources/engine/README.md
+
+# Updater signing key. The public half belongs in tauri.conf.json; the private
+# half must never be committed. Losing it means no future build can sign an
+# update that already-installed copies will accept.
+.keys/
