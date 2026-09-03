@@ -1,0 +1,1771 @@
+:root {
+  /* Warm graphite and amber.
+     The neutrals carry a deliberate warm bias rather than a pure grey, so they read as chosen
+     rather than inherited, and the accent is used only for the primary action and the current
+     place. Semantic colours stay separate from it, so "this is the button" and "this went wrong"
+     are never told apart by hue alone. */
+
+  --shell-900: #14120d;
+  --shell-800: #1c1a15;
+  --shell-700: #2a2720;
+
+  --accent-700: #8f5c12;
+  --accent-600: #a86c15;
+  --accent-500: #b8791f;
+  --accent-400: #d0973f;
+  --accent-050: #fdf4e3;
+
+  --ink-900: #17150f;
+  --ink-700: #4a4437;
+  --ink-600: #57503f;
+  --ink-500: #756c58;
+  --ink-300: #b3ab98;
+
+  --paper: #ffffff;
+  --paper-sunk: #faf9f5;
+  --line: #e7e3d8;
+  --line-strong: #d3cdbd;
+
+  --ok-600: #2f6b4f;
+  --ok-050: #e8f2ec;
+  --warn-600: #8a5200;
+  --warn-050: #fdf2e0;
+  --stop-600: #a33228;
+  --stop-050: #fbeceb;
+
+  --radius: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(23, 21, 15, 0.06);
+  --shadow-md: 0 6px 24px rgba(23, 21, 15, 0.1);
+
+  --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "Cascadia Mono", "Consolas", ui-monospace, monospace;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-900);
+  background: var(--paper-sunk);
+  -webkit-font-smoothing: antialiased;
+  /* A desktop app, not a web page: stray text selection on labels and buttons reads as a bug. */
+  user-select: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+input,
+textarea {
+  user-select: text;
+}
+
+/* Every tick and dot in the app is the app's own amber. Left alone, the browser draws these in its
+   default blue, which is the one colour this product does not use. */
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: var(--accent-500);
+}
+
+/* ---------- typography ---------- */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 22px;
+}
+h2 {
+  font-size: 16px;
+}
+
+.muted {
+  color: var(--ink-500);
+}
+
+.tiny {
+  font-size: 12px;
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: var(--paper);
+  cursor: pointer;
+  font-weight: 550;
+  transition: background 0.12s ease, border-color 0.12s ease, opacity 0.12s ease;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: 2px;
+}
+
+.btn--primary {
+  background: var(--accent-500);
+  color: #fff;
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--accent-600);
+}
+
+.btn--ghost {
+  border-color: var(--line-strong);
+  color: var(--ink-900);
+}
+.btn--ghost:hover:not(:disabled) {
+  background: var(--paper-sunk);
+}
+
+.btn--quiet {
+  background: none;
+  color: var(--accent-600);
+  padding: 0;
+  height: auto;
+}
+.btn--quiet:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+/* Removing is not the same shape of act as continuing, so it does not share the accent. */
+.btn--danger {
+  color: var(--stop-600);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--wide {
+  width: 100%;
+}
+
+.iconbtn {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-600);
+  cursor: pointer;
+}
+
+.iconbtn:hover {
+  border-color: var(--line-strong);
+  color: var(--ink-900);
+}
+
+.iconbtn:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: 2px;
+}
+
+/* The collapse arrow, turned to face the way the panel will move. */
+.flipped {
+  transform: rotate(180deg);
+}
+
+/* ---------- fields ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label,
+.field > span:first-child {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-600);
+}
+
+.input {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--paper);
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-500);
+  box-shadow: 0 0 0 3px var(--accent-050);
+}
+
+.input--code {
+  font-family: var(--mono);
+  font-size: 26px;
+  letter-spacing: 14px;
+  text-align: center;
+  height: 60px;
+  padding-left: 14px;
+}
+
+/* ---------- notices ---------- */
+
+.notice {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  border: 1px solid transparent;
+}
+
+.notice--error {
+  background: var(--stop-050);
+  border-color: #f3c9c9;
+  color: var(--stop-600);
+}
+.notice--ok {
+  background: var(--ok-050);
+  border-color: #c6e7da;
+  color: var(--ok-600);
+}
+.notice--warn {
+  background: var(--warn-050);
+  border-color: #f0dcb6;
+  color: var(--warn-600);
+}
+
+/* ---------- sign in ---------- */
+
+.signin {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  height: 100%;
+}
+
+.signin__brandside {
+  background: linear-gradient(160deg, var(--shell-800) 0%, var(--shell-900) 100%);
+  color: #fff;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.signin__wordmark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.signin__promise {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  max-width: 15ch;
+}
+
+.signin__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.signin__pillar {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: #cdc6b4;
+  font-size: 13px;
+  max-width: 42ch;
+}
+
+.signin__pillar strong {
+  color: #fff;
+  font-weight: 600;
+  display: block;
+}
+
+.signin__formside {
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.signin__form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- app shell ---------- */
+
+.shell {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  height: 100%;
+}
+
+.sidebar {
+  background: var(--shell-800);
+  color: #cdc6b4;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 12px;
+  gap: 4px;
+}
+
+.sidebar__wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 650;
+  padding: 6px 10px 18px;
+}
+
+.navgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+
+.navgroup__heading {
+  padding: 8px 10px 4px;
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9c9382;
+}
+
+.navitem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-weight: 500;
+}
+
+.navitem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.navitem--active,
+.navitem--active:hover {
+  background: var(--accent-500);
+  color: #fff;
+}
+
+.navitem__glyph {
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.sidebar__footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 12px;
+}
+
+/* Label above, name below. Side by side they ran together into one word. */
+.sidebar__workspace {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #cdc6b4;
+  text-align: left;
+}
+
+.sidebar__workspace .tiny {
+  color: #9c9382;
+}
+
+.sidebar__workspace strong {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar__workspace--action {
+  cursor: pointer;
+}
+
+.sidebar__workspace--action:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.sidebar__account {
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #9c9382;
+  overflow-wrap: anywhere;
+}
+
+.credits {
+  padding: 8px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.credits__label {
+  font-size: 11px;
+  color: #9c9382;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.credits__track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.credits__fill {
+  height: 100%;
+  background: var(--accent-400);
+  border-radius: 999px;
+  display: block;
+}
+
+.credits__fill--low {
+  background: var(--stop-600);
+}
+
+.main {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 28px 32px 48px;
+  min-height: 0;
+}
+
+/* Chat manages its own scrolling, so the shell must not add a second scroller around it. */
+.main--flush {
+  overflow: hidden;
+  padding: 0;
+  height: 100%;
+}
+
+.main__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+/* ---------- cards ---------- */
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.stat {
+  font-size: 26px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.kv:last-child {
+  border-bottom: none;
+}
+
+.kv__value {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-600);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pill--ok {
+  background: var(--ok-050);
+  color: var(--ok-600);
+}
+.pill--warn {
+  background: var(--warn-050);
+  color: var(--warn-600);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.centered {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-500);
+}
+
+/* Drawn in whatever colour surrounds it, so the same spinner works on a white card and inside a
+   filled button. It was white on both, which meant it simply vanished on the card. */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-right-color: currentColor;
+  border-radius: 999px;
+  opacity: 0.75;
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- panel actions ---------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.onboarding__form .actions {
+  margin-top: 4px;
+  padding-top: 0;
+  border-top: 0;
+  justify-content: space-between;
+}
+
+/* ---------- stepper ----------
+   One track rather than four badges, and the marker sits above its words: side by side, the rule
+   joining one step to the next ran straight through the label and read as struck-out text. */
+
+.stepper {
+  display: flex;
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+.stepper__step {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding-right: 18px;
+}
+
+.stepper__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 34px;
+  right: 6px;
+  top: 13px;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.stepper__step--done:not(:last-child)::after {
+  background: var(--accent-400);
+}
+
+.stepper__marker {
+  position: relative;
+  z-index: 1;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink-500);
+  font-size: 12px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.stepper__step--current .stepper__marker {
+  background: var(--accent-500);
+  border-color: var(--accent-500);
+  color: #fff;
+  box-shadow: 0 0 0 4px var(--accent-050);
+}
+
+.stepper__step--done .stepper__marker {
+  background: var(--accent-050);
+  border-color: var(--accent-400);
+  color: var(--accent-700);
+}
+
+.stepper__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.stepper__text strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.stepper__text .tiny {
+  color: var(--ink-500);
+  line-height: 1.4;
+}
+
+.stepper__step--todo .stepper__text strong {
+  color: var(--ink-500);
+  font-weight: 500;
+}
+
+/* ---------- empty states ---------- */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 26px 28px;
+  max-width: 720px;
+}
+
+.empty__title {
+  margin: 0;
+  font-size: 17px;
+}
+
+.empty__body {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--ink-600);
+  line-height: 1.6;
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- chips ----------
+   Removable ones turn red on hover because clicking one deletes it, and that should be visible
+   before the click rather than after. */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-700);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+
+.chip:hover {
+  border-color: var(--accent-400);
+  background: var(--accent-050);
+  color: var(--accent-700);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: 2px;
+}
+
+.chip--removable {
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.chip--removable span {
+  font-family: var(--font);
+  color: var(--ink-300);
+}
+
+.chip--removable:hover {
+  border-color: #e0b3ae;
+  background: var(--stop-050);
+  color: var(--stop-600);
+}
+
+.chip--removable:hover span {
+  color: var(--stop-600);
+}
+
+/* ---------- next steps ---------- */
+
+.nextsteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+
+.nextstep {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.nextstep:hover {
+  border-color: var(--accent-400);
+  box-shadow: var(--shadow-md);
+}
+
+.nextstep:focus-visible {
+  outline: 2px solid var(--accent-500);
+  outline-offset: 2px;
+}
+
+.nextstep__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.nextstep__body {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-500);
+}
+
+/* ---------- reasons ---------- */
+
+.reasons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.reasons li {
+  position: relative;
+  padding-left: 16px;
+  max-width: 84ch;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-600);
+}
+
+.reasons li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent-400);
+}
+
+.reasons strong {
+  color: var(--ink-900);
+}
+
+/* ---------- privacy gate ---------- */
+
+.gate {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  max-width: 780px;
+}
+
+.gate__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+.gate__group {
+  margin-bottom: 20px;
+}
+
+.gate__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gate__row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.gate__row--locked {
+  background: var(--ok-050);
+  color: var(--ok-600);
+}
+
+.gate__row--amber {
+  background: var(--warn-050);
+  color: var(--warn-600);
+}
+
+.gate__tick {
+  text-align: center;
+  font-weight: 700;
+}
+
+.gate__placeholder {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-900);
+  overflow-wrap: anywhere;
+}
+
+.gate__category {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.gate__confidence {
+  font-family: var(--mono);
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.gate__payload {
+  margin: 12px 0 0;
+  padding: 14px;
+  background: var(--shell-900);
+  color: #e6dfd1;
+  border-radius: var(--radius);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.6;
+  max-height: 320px;
+  overflow: auto;
+  white-space: pre-wrap;
+  user-select: text;
+}
+
+.gate__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- document choices ---------- */
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+}
+
+.modes__option {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
+  text-align: left;
+  padding: 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--paper);
+  cursor: pointer;
+}
+
+.modes__option--active {
+  border-color: var(--accent-500);
+  background: var(--accent-050);
+}
+
+.modes__cost {
+  margin-top: 2px;
+  color: var(--accent-700);
+  font-weight: 600;
+}
+
+.modelpick {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 210px;
+}
+
+.modelpick .input {
+  height: 34px;
+}
+
+.summarybar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: var(--paper-sunk);
+}
+
+.summarybar > span {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.summarybar strong {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.termadd {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.termadd .input {
+  flex: 1;
+}
+
+/* Sticky, because the decision to keep a document belongs within reach however far down the
+   preview somebody has read. */
+.savebar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--paper);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- word picker ---------- */
+
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.picker__hint {
+  margin: 0;
+  color: var(--ink-500);
+}
+
+.picker__body {
+  max-height: 340px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-sunk);
+  font-size: 13.5px;
+  line-height: 2;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.picker__word {
+  margin: 0 -2px;
+  padding: 0 2px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.picker__word:hover {
+  background: var(--accent-050);
+  box-shadow: inset 0 -1px 0 var(--accent-400);
+}
+
+.picker__word--chosen,
+.picker__word--chosen:hover {
+  background: var(--accent-500);
+  color: #fff;
+  box-shadow: none;
+}
+
+.picker__hidden {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--shell-700);
+  color: #e8e2d5;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* ---------- memory ---------- */
+
+.memories {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.memory {
+  padding: 14px 16px;
+}
+
+.memory__head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+/* Nothing pinned and nothing seen twice leaves this row empty, and an empty row still pushed the
+   memory down by its own margin. */
+.memory__head:empty {
+  display: none;
+}
+
+.memory__content {
+  margin: 0 0 10px;
+  font-size: 14px;
+  user-select: text;
+}
+
+.memory__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.memorysection {
+  margin-bottom: 24px;
+}
+
+.memorysection__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.memorysection__title {
+  font-size: 15px;
+  margin: 0 0 2px;
+}
+
+/* ---------- onboarding ---------- */
+
+.onboarding {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: var(--paper-sunk);
+}
+
+.onboarding__panel {
+  width: 100%;
+  max-width: 460px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.onboarding__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profileform {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.profileform .field {
+  flex: 1 1 180px;
+}
+
+/* ---------- chat ----------
+   The page itself must not scroll here. The shell gives `.main` a single scrolling area, which for
+   a chat produced two nested scrollers, a composer that drifted, and an overscroll bounce that
+   exposed the page behind. The chat instead fills the height exactly once and scrolls only its
+   transcript.
+
+   `min-height: 0` on the column is what makes that work: a flex child will not shrink below its
+   content without it, so the transcript would grow the page instead of scrolling inside it. */
+
+.chat {
+  display: grid;
+  grid-template-columns: 252px minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+}
+
+.chat--narrow {
+  grid-template-columns: 56px minmax(0, 1fr);
+}
+
+.threads {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  height: 100%;
+  padding: 18px 14px;
+  border-right: 1px solid var(--line);
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.chat--narrow .threads {
+  padding: 18px 10px;
+  align-items: center;
+}
+
+.threads__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+}
+
+.threads__new {
+  flex: 1;
+  height: 34px;
+  padding: 0 12px;
+}
+
+.threads__context {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.threads__context .tiny:first-child {
+  font-weight: 600;
+  color: var(--ink-600);
+}
+
+.threads__context .input {
+  height: 34px;
+  font-size: 13px;
+}
+
+/* The only scrolling part of the rail, so New chat and the context picker stay put while a long
+   history moves. */
+.threads__list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0 -6px;
+  padding: 0 6px;
+}
+
+.thread {
+  display: flex;
+  align-items: stretch;
+  border-radius: 8px;
+}
+
+.thread:hover {
+  background: var(--paper-sunk);
+}
+
+.thread--active {
+  background: var(--accent-050);
+}
+
+.thread__open {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.thread__title {
+  font-size: 13px;
+  color: var(--ink-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.thread__tag {
+  font-size: 11px;
+  color: var(--ink-500);
+}
+
+.thread--active .thread__tag {
+  color: var(--accent-700);
+}
+
+.thread__delete {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  background: none;
+  border: 0;
+  color: var(--ink-300);
+  cursor: pointer;
+  opacity: 0;
+}
+
+.thread:hover .thread__delete {
+  opacity: 1;
+}
+
+.thread__delete:hover {
+  color: var(--stop-600);
+}
+
+.conversation {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.conversation__head {
+  flex: none;
+  padding: 20px 28px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.conversation__head h1 {
+  font-size: 17px;
+}
+
+/* The one scrolling region. `overscroll-behavior: contain` is what stops the rubber-band from
+   dragging the page underneath into view. */
+.conversation__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 20px 28px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.composerbar {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 28px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.composer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.composer .input {
+  flex: 1;
+}
+
+.composerbar__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---------- a chat turn ----------
+   What the person typed is set apart on the right and kept narrow, because it is re-read at a
+   glance. The answer stays left on the full measure, because it is the part that gets read. */
+
+.turn {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 780px;
+}
+
+.turn--user {
+  align-self: flex-end;
+  max-width: 620px;
+  padding: 11px 15px;
+  border: 1px solid #f1e0c2;
+  border-radius: var(--radius-lg) var(--radius-lg) 4px var(--radius-lg);
+  background: var(--accent-050);
+}
+
+.turn--assistant {
+  align-self: flex-start;
+  padding: 14px 17px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 4px;
+  background: var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+
+/* A failed answer sits in the flow where the answer would have been, so it is read in place
+   rather than hunted for. */
+.turn--failed {
+  align-self: flex-start;
+  gap: 8px;
+}
+
+.turn--failed .turn__meta {
+  align-items: center;
+  border-top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set as a name, not as a tracked-out label. It is who is speaking, read once then skimmed past. */
+.turn__role {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--ink-600);
+}
+
+.turn__text {
+  margin: 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.turn__meta {
+  margin-top: 2px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 8px;
+}
+
+.turn--thinking {
+  opacity: 0.9;
+}
+
+.thinking {
+  display: inline-flex;
+  gap: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.thinking i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-500);
+  animation: thinking 1.1s ease-in-out infinite;
+}
+
+.thinking i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.thinking i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes thinking {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* ---------- opt in ---------- */
+
+.optin {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--paper-sunk);
+  cursor: pointer;
+}
+
+.optin input {
+  margin: 2px 0 0;
+}
+
+/* Direct child only. As a descendant selector this also caught the quiet note nested inside,
+   turning a phrase into two stacked boxes. */
+.optin > span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--ink-600);
+}
+
+.optin--inline {
+  margin: 0;
+  padding: 0;
+  background: none;
+  align-items: center;
+}
+
+/* Plain inline text rather than a flex row. As a flex item the trailing note became its own box
+   and the space before it was dropped, so the sentence ran together. */
+.optin--inline > span {
+  display: block;
+}
+
+/* ---------- the model picker ---------- */
+
+.modelpicker {
+  position: relative;
+}
+
+.modelpicker__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink-600);
+  font-size: 12px;
+  cursor: pointer;
+  max-width: 260px;
+}
+
+.modelpicker__button:hover:not(:disabled) {
+  border-color: var(--line-strong);
+  color: var(--ink-900);
+}
+
+.modelpicker__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modelpicker__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.modelmenu {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  z-index: 20;
+  min-width: 250px;
+  max-height: 320px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px;
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+.modelmenu__group {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 8px 4px;
+}
+
+.modelmenu__group strong {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-500);
+}
+
+.modelmenu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink-900);
+}
+
+.modelmenu__item:hover {
+  background: var(--paper-sunk);
+}
+
+.modelmenu__item--chosen {
+  color: var(--accent-700);
+  font-weight: 600;
+}
+
+/* ---------- rendered replies ----------
+   Built as React elements, never as an HTML string, so model output cannot carry markup. These
+   styles just have to make the result read well. */
+
+.md {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  user-select: text;
+}
+
+.md > :first-child {
+  margin-top: 0;
+}
+.md > :last-child {
+  margin-bottom: 0;
+}
+
+.md h2,
+.md h3,
+.md h4 {
+  margin: 4px 0 0;
+  line-height: 1.3;
+}
+.md h2 {
+  font-size: 16px;
+}
+.md h3 {
+  font-size: 14.5px;
+}
+.md h4 {
+  font-size: 13.5px;
+}
+
+.md p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.md ul,
+.md ol {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.md li {
+  line-height: 1.55;
+}
+
+.md code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--paper-sunk);
+  border: 1px solid var(--line);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+.md pre {
+  margin: 0;
+  padding: 12px 14px;
+  background: var(--shell-800);
+  color: #f2ede3;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.md pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
