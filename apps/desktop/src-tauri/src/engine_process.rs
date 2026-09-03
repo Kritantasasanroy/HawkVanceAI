@@ -184,6 +184,12 @@ impl EngineProcess {
     /// like using, so nothing here may depend on the current directory. The repository is found by
     /// walking up from the executable instead.
     fn candidates() -> Vec<(PathBuf, Vec<String>)> {
+        Self::candidates_with(std::env::var("HAWKVANCE_ENGINE_PYTHON").ok())
+    }
+
+    /// The override is a parameter rather than something read from the environment here, so the
+    /// ordering can be tested without two tests fighting over a process-wide variable.
+    fn candidates_with(override_path: Option<String>) -> Vec<(PathBuf, Vec<String>)> {
         let mut found = Vec::new();
         let module = vec!["-m".to_string(), "hawkvance_engine".to_string()];
 
@@ -210,7 +216,7 @@ impl EngineProcess {
         }
 
         // An explicit override always wins, for anyone running a non-standard setup.
-        if let Ok(override_path) = std::env::var("HAWKVANCE_ENGINE_PYTHON") {
+        if let Some(override_path) = override_path {
             found.insert(0, (PathBuf::from(override_path), module.clone()));
         }
 
@@ -232,7 +238,7 @@ mod tests {
 
     #[test]
     fn the_frozen_sidecar_is_preferred_over_a_development_environment() {
-        let candidates = EngineProcess::candidates();
+        let candidates = EngineProcess::candidates_with(None);
         let first = candidates.first().expect("at least one candidate");
         assert!(
             first.0.ends_with("hawkvance-engine.exe"),
@@ -243,9 +249,7 @@ mod tests {
 
     #[test]
     fn an_override_is_tried_before_everything_else() {
-        std::env::set_var("HAWKVANCE_ENGINE_PYTHON", "C:/custom/python.exe");
-        let candidates = EngineProcess::candidates();
-        std::env::remove_var("HAWKVANCE_ENGINE_PYTHON");
+        let candidates = EngineProcess::candidates_with(Some("C:/custom/python.exe".into()));
 
         assert_eq!(candidates[0].0, PathBuf::from("C:/custom/python.exe"));
         assert_eq!(candidates[0].1, vec!["-m", "hawkvance_engine"]);

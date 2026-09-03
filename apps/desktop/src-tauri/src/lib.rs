@@ -11,6 +11,7 @@
 
 pub mod cipher;
 pub mod engine_process;
+pub mod neon_auth;
 pub mod master_key;
 pub mod records;
 pub mod vault;
@@ -23,6 +24,7 @@ use tauri::{Manager, State};
 
 use crate::cipher::Cipher;
 use crate::engine_process::EngineProcess;
+use crate::neon_auth::NeonAuth;
 use crate::records::{
     ConversationRecord, ConversationTurnRecord, DocumentRecord, RedactionEntry, RestoreRequest,
     WorkspaceRecord,
@@ -37,10 +39,14 @@ use crate::vault_store::{VaultStore, GLOBAL_SCOPE};
 /// undo the entire arrangement.
 const RENDERER_MAY_NOT_CALL: &[&str] = &["privacy.exportMap"];
 
+/// Where the session lives between runs, inside the encrypted vault.
+const SESSION_COOKIE_SETTING: &str = "session.neon_cookie";
+
 pub struct AppState {
     vault: Mutex<Option<Vault>>,
     cipher: Mutex<Option<Cipher>>,
     engine: EngineProcess,
+    auth: tokio::sync::Mutex<NeonAuth>,
 }
 
 impl AppState {
@@ -49,8 +55,22 @@ impl AppState {
             vault: Mutex::new(None),
             cipher: Mutex::new(None),
             engine: EngineProcess::new(),
+            auth: tokio::sync::Mutex::new(NeonAuth::new(
+                std::env::var("HAWKVANCE_NEON_AUTH_URL").unwrap_or_else(|_| {
+                    // Baked in at build time by the same value the renderer is given, so the two
+                    // halves of sign-in cannot end up pointed at different projects.
+                    option_env!("VITE_NEON_AUTH_URL").unwrap_or_default().to_string()
+                }),
+            )),
         }
     }
+}
+
+/// Keeps the session in the vault so closing the app is not the same as signing out.
+fn remember_session(state: &AppState, cookie: Option<String>) {
+    let _ = with_store(state, |store| {
+        store.write_setting(SESSION_COOKIE_SETTING, cookie.as_deref().unwrap_or(""))
+    });
 }
 
 type Reply = Result<Value, Value>;
@@ -288,6 +308,98 @@ fn setting_read(state: State<'_, AppState>, key: String) -> Reply {
     Ok(json!(value))
 }
 
+// ---------- sign in ------------------------------------------------------------------------
+
+#[tauri::command]
+async fn auth_send_code(state: State<'_, AppState>, email: String) -> Reply {
+    let auth = state.auth.lock().await;
+    auth.send_code(email.trim())
+        .await
+        .map(|()| Value::Null)
+        .map_err(|error| json!({ "code": "sign_in_failed", "message": error.to_string() }))
+}
+
+#[tauri::command]
+async fn auth_verify_code(state: State<'_, AppState>, email: String, code: String) -> Reply {
+    let mut auth = state.auth.lock().await;
+    auth.verify_code(email.trim(), code.trim())
+        .await
+        .map_err(|error| json!({ "code": "sign_in_failed", "message": error.to_string() }))?;
+
+    let token = auth
+        .identity_token()
+        .await
+        .map_err(|error| json!({ "code": "sign_in_failed", "message": error.to_string() }))?;
+
+    let cookie = auth.stored_cookie();
+    drop(auth);
+    remember_session(&state, cookie);
+
+    Ok(json!({ "identityToken": token }))
+}
+
+/// A fresh identity token for an already signed-in session.
+///
+/// The renderer calls this when the backend rejects a token as expired. The session behind it is
+/// good for far longer than the token, so this is a renewal rather than a new sign-in.
+#[tauri::command]
+async fn auth_identity_token(state: State<'_, AppState>) -> Reply {
+    let mut auth = state.auth.lock().await;
+    if !auth.is_signed_in() {
+        return Err(json!({ "code": "signed_out", "message": "Please sign in again." }));
+    }
+    let token = auth
+        .identity_token()
+        .await
+        .map_err(|error| json!({ "code": "signed_out", "message": error.to_string() }))?;
+
+    let cookie = auth.stored_cookie();
+    drop(auth);
+    remember_session(&state, cookie);
+
+    Ok(json!({ "identityToken": token }))
+}
+
+/// Puts back a session kept from a previous run, if there is one.
+#[tauri::command]
+async fn auth_restore(state: State<'_, AppState>) -> Reply {
+    let stored = with_store(&state, |store| store.read_setting(SESSION_COOKIE_SETTING))
+        .unwrap_or(None)
+        .unwrap_or_default();
+
+    if stored.trim().is_empty() {
+        return Ok(json!({ "signedIn": false }));
+    }
+
+    let mut auth = state.auth.lock().await;
+    auth.restore_cookie(stored);
+    match auth.identity_token().await {
+        Ok(token) => {
+            let cookie = auth.stored_cookie();
+            drop(auth);
+            remember_session(&state, cookie);
+            Ok(json!({ "signedIn": true, "identityToken": token }))
+        }
+        Err(_) => {
+            // The stored session is no longer good. Clearing it means the next launch shows the
+            // sign-in screen straight away rather than trying a dead session again.
+            auth.sign_out();
+            drop(auth);
+            remember_session(&state, None);
+            Ok(json!({ "signedIn": false }))
+        }
+    }
+}
+
+#[tauri::command]
+async fn auth_sign_out(state: State<'_, AppState>) -> Reply {
+    let mut auth = state.auth.lock().await;
+    auth.sign_out();
+    drop(auth);
+    remember_session(&state, None);
+    Ok(Value::Null)
+}
+
 #[tauri::command]
 fn global_scope_name() -> Reply {
     Ok(json!(GLOBAL_SCOPE))
@@ -336,6 +448,11 @@ pub fn run() {
             protected_terms_in_effect,
             setting_write,
             setting_read,
+            auth_send_code,
+            auth_verify_code,
+            auth_identity_token,
+            auth_restore,
+            auth_sign_out,
             global_scope_name,
         ])
         .run(tauri::generate_context!())
