@@ -16,17 +16,20 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
-tauri = { version = "2", features = ["protocol-asset"] }
+# No asset protocol: the frontend is bundled into the binary and files are read through
+# commands, so exposing a file URL scheme to the web view would widen it for nothing.
+tauri = { version = "2" }
 tauri-plugin-dialog = "2"
 tauri-plugin-updater = "2"
 
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
-# The vault. rusqlite is pinned to the bundled SQLCipher build so the encryption
-# travels with the binary rather than depending on whatever libsqlite the machine
-# happens to have.
-rusqlite = { version = "0.32", features = ["bundled-sqlcipher", "chrono"] }
+# The vault. SQLCipher is bundled, and so is the OpenSSL it needs: without the
+# vendored variant the build demands an OPENSSL_DIR on every machine that ever
+# compiles this, which is not a reasonable thing to ask of a contributor and not
+# something a release pipeline should depend on finding.
+rusqlite = { version = "0.32", features = ["bundled-sqlcipher-vendored-openssl", "chrono"] }
 
 aes-gcm = "0.10"
 rand = "0.8"

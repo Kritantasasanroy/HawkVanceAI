@@ -22,7 +22,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; img-src 'self' asset: http://asset.localhost data:; style-src 'self' 'unsafe-inline'; connect-src 'self' ipc: http://ipc.localhost https://*.neon.tech https://*.neonauth.ap-southeast-2.aws.neon.tech http://localhost:8080"
+      "csp": "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src 'self' ipc: http://ipc.localhost https://*.neon.tech https://*.aws.neon.tech http://localhost:8080"
     }
   },
   "bundle": {
